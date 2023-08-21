@@ -1,0 +1,68 @@
+nav ul {
+  position: absolute;
+  right: 1rem;
+  --_gap: 1.2rem;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  padding-inline: calc(var(--_gap) / 3);
+  position: relative;
+  font-size: 1.2rem;
+}
+
+nav li::after {
+  content: '';
+  height: 3px;
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  bottom: -6px;
+  background: blueviolet;
+  pointer-events: none;
+
+  scale: 0 1;
+  transition: scale 300ms, translate 350ms;
+}
+
+nav li:hover::after {
+  scale: 1 1;
+}
+
+nav li:hover + li::after {
+  translate: -100%;
+}
+
+nav li:has(+ :hover)::after {
+  translate: 100%;
+}
+
+nav li a {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 550ms;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+}
+
+nav a.active {
+  color: blueviolet;
+}
+
+nav ul:hover a:not(:hover).active {
+  color: inherit;
+}
+
+nav a:hover {
+  color: blueviolet;
+}

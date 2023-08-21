@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import MainCheckout from './components/Checkout/MainCheckout';
 
@@ -25,12 +25,10 @@ export default nomeDoComponente;
 function Router() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/checkout' element={<MainCheckout />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/checkout' element={<MainCheckout />} />
+      </Routes>
     </>
   );
 }

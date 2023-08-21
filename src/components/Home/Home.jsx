@@ -7,9 +7,6 @@ function Home() {
       <div className='titles'>
         <h1>So um exemplo</h1>
       </div>
-      <button>
-        <a href='/checkout'>Checkout</a>
-      </button>
     </main>
   );
 }

@@ -1,12 +1,11 @@
 import React from 'react';
 import './mainCheckout.css';
-import Navbar from '../Home/Navbar';
 
 function MainCheckout() {
   return (
     <>
       <section>
-        <Navbar />
+        <h1>A</h1>
       </section>
     </>
   );

@@ -1,11 +1,11 @@
 import Router from './Router';
-import Navbar from './components/Home/Navbar';
+import Header from './components/Home/Header';
 
 function App() {
   return (
     <>
       {/* AQUI EU CHAMO O ROUTER PRA TRATAR AS ROTAS. NÃO MEXE AQUI*/}
-      <Navbar />
+      <Header />
       <Router />
     </>
   );
