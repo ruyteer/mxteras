@@ -1,5 +1,5 @@
-import React from 'react';
-import './navbar.css';
+import React from "react";
+import "./navbar.css";
 
 function Navbar() {
   return (
@@ -7,16 +7,10 @@ function Navbar() {
       <nav>
         <ul>
           <li>
-            <a href='/checkout'>Home</a>
+            <a href="/checkout">Home</a>
           </li>
           <li>
-            <a href='/'>Home</a>
-          </li>
-          <li>
-            <a href='/'>Home</a>
-          </li>
-          <li>
-            <a href='/'>Home</a>
+            <a href="/">Home</a>
           </li>
         </ul>
       </nav>
