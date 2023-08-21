@@ -1,8 +1,15 @@
-import React from "react";
-import "./mainCheckout.css";
+import React from 'react';
+import './mainCheckout.css';
+import Navbar from '../Home/Navbar';
 
 function MainCheckout() {
-  return <div>MainCheckout</div>;
+  return (
+    <>
+      <section>
+        <Navbar />
+      </section>
+    </>
+  );
 }
 
 export default MainCheckout;
