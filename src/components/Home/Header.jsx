@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 function Header() {
   return (
     <>
-      <nav>
-        <section>
+      <header>
+        <nav>
           <ul>
             <li>
               <Link to='/'>Home</Link>
@@ -15,8 +15,8 @@ function Header() {
               <Link to='/Checkout'>Checkout</Link>
             </li>
           </ul>
-        </section>
-      </nav>
+        </nav>
+      </header>
     </>
   );
 }

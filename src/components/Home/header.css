@@ -1,3 +1,4 @@
+/* Navbar Configuration */
 nav ul {
   position: absolute;
   right: 1rem;
@@ -66,3 +67,4 @@ nav ul:hover a:not(:hover).active {
 nav a:hover {
   color: blueviolet;
 }
+/* Navbar Configuration */
