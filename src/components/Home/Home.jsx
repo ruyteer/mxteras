@@ -4,9 +4,7 @@ import './home.css';
 function Home() {
   return (
     <main>
-      <div className='titles'>
-        <h1>So um exemplo</h1>
-      </div>
+      <h1>So um exemplo</h1>
     </main>
   );
 }

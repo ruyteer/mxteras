@@ -123,3 +123,7 @@ header .logo {
   right: 3px;
   top: 0;
 }
+
+.link-active {
+  color: red;
+}

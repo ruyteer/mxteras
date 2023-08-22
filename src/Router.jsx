@@ -22,11 +22,19 @@ export default nomeDoComponente;
 
 // PRA ADICIONAR UMA NOVA ROTA, CRIE UM Route E ADICIONE UM PATH PASSANDO A ROTA E UM element PASSANDO O COMPONENTE CORRESPONDENTE
 
+/**
+ * Render the router component.
+ *
+ * @returns {JSX.Element} The rendered router component.
+ */
 function Router() {
   return (
     <>
+      {/* Define the routes */}
       <Routes>
+        {/* Define the home route */}
         <Route path='/' element={<Home />} />
+        {/* Define the checkout route */}
         <Route path='/checkout' element={<MainCheckout />} />
       </Routes>
     </>
