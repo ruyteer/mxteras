@@ -6,6 +6,7 @@ function Header() {
   return (
     <>
       <header>
+        <h1 className='logo'>Teste</h1>
         <nav>
           <ul>
             <li>
