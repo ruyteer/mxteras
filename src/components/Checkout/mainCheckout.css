@@ -1,0 +1,78 @@
+.header {
+  width: 100%;
+  background-color: darkblue;
+  height: 3vh;
+  display: flex;
+  align-items: start;
+  font-size: 0.6rem;
+  flex-direction: column;
+}
+
+.header h1 {
+  color: white;
+  position: absolute;
+  left: 0.7em;
+}
+
+.image-card {
+  display: flex;
+  background-color: antiquewhite;
+  height: 100vh;
+  width: 60vw;
+  margin-top: 2.5em;
+  margin-left: 2.5em;
+  border-radius: 25px;
+  margin-bottom: 30px;
+}
+.imagePreview {
+  background-color: red;
+  width: 130px;
+  height: 100%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.imagePreview .img1 {
+  width: 80%;
+  height: 17%;
+  background-color: blue;
+  border-radius: 25px;
+  position: relative;
+  left: 10px;
+  top: 10px;
+  margin-bottom: 10px;
+}
+
+.imagePreview .img2 {
+  width: 80%;
+  height: 17%;
+  background-color: blue;
+  border-radius: 25px;
+  position: relative;
+  left: 10px;
+  top: 10px;
+  margin-bottom: 10px;
+}
+
+.image {
+  position: relative;
+  width: 78%;
+  height: 95%;
+  background-color: green;
+  top: 16px;
+  left: 16px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.priceTable {
+  width: 25%;
+  height: 75%;
+  background-color: darkblue;
+  position: absolute;
+  right: 5em;
+  top: 9.3em;
+  border-radius: 25px;
+}
