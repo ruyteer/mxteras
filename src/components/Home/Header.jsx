@@ -37,10 +37,6 @@ CustomLink.propTypes = {
  * @returns {JSX.Element} The header component
  */
 function Header() {
-  const handleClick = buttons => {
-    buttons.forEach(button => button.classList.remove('active'));
-    this.buttons.classList.add('active');
-  };
   return (
     <>
       <header>
