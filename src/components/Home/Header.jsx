@@ -3,6 +3,10 @@ import './header.css';
 import { Link } from 'react-router-dom';
 
 function Header() {
+  const handleClick = buttons => {
+    buttons.forEach(button => button.classList.remove('active'));
+    this.buttons.classList.add('active');
+  };
   return (
     <>
       <header>
@@ -10,10 +14,14 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/' onClick={handleClick}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link to='/Checkout'>Checkout</Link>
+              <Link to='/Checkout' onClick={handleClick}>
+                Checkout
+              </Link>
             </li>
           </ul>
         </nav>
