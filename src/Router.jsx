@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home/Home';
-import MainCheckout from './components/Checkout/MainCheckout';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home/Home";
+import MainCheckout from "./components/Checkout/MainCheckout";
 
 //  AQUI TU PODE CRIAR ROTAS E CHAMAR NOVOS ELEMENTOS.
 // PARA CRIAR UM ELEMENTO NOVO, SEGUE ESSE PADRÃO:
@@ -33,9 +33,9 @@ function Router() {
       {/* Define the routes */}
       <Routes>
         {/* Define the home route */}
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
         {/* Define the checkout route */}
-        <Route path='/checkout' element={<MainCheckout />} />
+        <Route path="/checkout" element={<MainCheckout />} />
       </Routes>
     </>
   );
