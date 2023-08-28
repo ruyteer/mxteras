@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './header.css';
-import { Link, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import "./header.css";
+import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 /**
  * CustomLink component.
@@ -21,7 +21,7 @@ function CustomLink({ to, children }) {
   }, [location, to]);
 
   return (
-    <Link to={to} className={isActive ? 'link-active' : ''}>
+    <Link to={to} className={isActive ? "link-active" : ""}>
       {children}
     </Link>
   );
@@ -29,7 +29,7 @@ function CustomLink({ to, children }) {
 
 CustomLink.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 /**
@@ -41,22 +41,22 @@ function Header() {
     <>
       <header>
         {/* Top section */}
-        <section className='uptop'>
+        <section className="uptop">
           <h1>Lorem, ipsum dolor sit amet consectetur adipisicing.</h1>
         </section>
 
         {/* Bottom section */}
-        <section className='downtop'>
+        <section className="downtop">
           {/* Logo */}
-          <section className='logo'>
-            <h1 className='logo'>Teste</h1>
+          <section className="logo">
+            <h1 className="logo">Teste</h1>
           </section>
 
           {/* Navigation */}
-          <section className='navigation'>
+          <section className="navigation">
             {/* Search bar */}
-            <section className='searchBar'>
-              <input type='text' placeholder='Search...' />
+            <section className="searchBar">
+              <input type="text" placeholder="Search..." />
             </section>
 
             {/* Nav links */}
@@ -64,18 +64,18 @@ function Header() {
               <ul>
                 <li>
                   {/* Home link */}
-                  <CustomLink to='/'>Home</CustomLink>
+                  <CustomLink to="/">Home</CustomLink>
                 </li>
                 <li>
                   {/* Checkout link */}
-                  <CustomLink to='/Checkout'>Checkout</CustomLink>
+                  <CustomLink to="/checkout">Checkout</CustomLink>
                 </li>
               </ul>
             </nav>
           </section>
 
           {/* Other sections */}
-          <section className='others'>
+          <section className="others">
             <h1>other1</h1>
             <h1>other2</h1>
           </section>

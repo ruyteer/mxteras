@@ -1,5 +1,5 @@
-import React from 'react';
-import './navbar.css';
+import React from "react";
+import "./navbar.css";
 
 /**
  * Render the navigation bar.
@@ -13,11 +13,11 @@ function Navbar() {
         <ul>
           {/* Home */}
           <li>
-            <a href='/checkout'>Home</a>
+            <a href="/checkout">Home</a>
           </li>
           {/* Home */}
           <li>
-            <a href='/'>Home</a>
+            <a href="/">Home</a>
           </li>
         </ul>
       </nav>
