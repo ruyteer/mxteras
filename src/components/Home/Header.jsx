@@ -2,16 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./header.css";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import logo from "../../assets/logo.png";
 
-/**
- * CustomLink component.
- *
- * @param {Object} props - The props object.
- * @param {string} props.to - The path the link should navigate to.
- * @param {ReactNode} props.children - The content of the link.
- *
- * @returns {JSX.Element} The CustomLink component.
- */
 function CustomLink({ to, children }) {
   const location = useLocation();
   const [isActive, setIsActive] = useState(false);
@@ -32,46 +24,74 @@ CustomLink.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-/**
- * Render the header component
- * @returns {JSX.Element} The header component
- */
 function Header() {
   return (
     <>
       <header>
-        {/* Top section */}
         <section className="uptop">
-          <h1>Lorem, ipsum dolor sit amet consectetur adipisicing.</h1>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            id="Capa_1"
+            x="0px"
+            y="0px"
+            fill="white"
+            viewBox="0 0 512 264"
+            style={{
+              marginBottom: "6px",
+              marginRight: "12px",
+            }}
+            width="18"
+            height="37"
+          >
+            <g>
+              <path d="M490.727,21.379C473.083,3.489,447.355-3.846,422.93,2.051L96.786,70.595C34.85,79.76-7.929,137.399,1.236,199.334   c3.563,24.079,14.782,46.372,31.997,63.581l34.965,34.987c1.637,1.615,2.552,3.823,2.539,6.123v64.512   c0.047,40.134,32.57,72.657,72.704,72.704h64.512c2.303,0,4.513,0.913,6.144,2.539l34.965,34.965   c21.142,21.282,49.895,33.259,79.893,33.28c12.383-0.01,24.683-2.035,36.416-5.995c40.491-13.447,69.914-48.61,76.011-90.837   l68.544-325.12C516.084,65.391,508.789,39.291,490.727,21.379z M66.599,167c5.798-17.913,21.444-30.848,40.128-33.173   c0.754-0.1,1.5-0.228,2.24-0.384L393.17,73.71L134.738,331.992v-27.968c0.047-19.294-7.637-37.803-21.333-51.392l-34.923-34.965   C65.031,204.511,60.399,184.765,66.599,167z M378.535,403.118c-0.171,0.747-0.277,1.493-0.384,2.24   c-3.705,27.023-28.614,45.926-55.637,42.221c-10.676-1.464-20.581-6.379-28.203-13.997l-34.944-34.944   c-13.596-13.7-32.112-21.383-51.413-21.333h-27.968l258.368-258.432L378.535,403.118z"></path>
+            </g>
+          </svg>
+          <h1>
+            TERAS NO GDMO E LDMO | ENTREGA DAS 12:00 ÁS 00:00 NA HORA | CONTAS
+            NO DMO
+          </h1>
         </section>
 
         {/* Bottom section */}
         <section className="downtop">
           {/* Logo */}
           <section className="logo">
-            <h1 className="logo">Teste</h1>
+            <img
+              src={logo}
+              alt=""
+              style={{
+                width: 300,
+                height: 90,
+                textAlign: "center",
+              }}
+            />
           </section>
 
-          {/* Navigation */}
-          <section className="navigation">
-            {/* Search bar */}
-            <section className="searchBar">
-              <input type="text" placeholder="Search..." />
-            </section>
-
-            {/* Nav links */}
-            <nav>
-              <ul>
-                <li>
-                  {/* Home link */}
-                  <CustomLink to="/">Home</CustomLink>
-                </li>
-                <li>
-                  {/* Checkout link */}
-                  <CustomLink to="/checkout">Checkout</CustomLink>
-                </li>
-              </ul>
-            </nav>
+          {/* Search bar */}
+          <section className="searchBar">
+            <div className="search">
+              <input type="text" placeholder="O que está buscando?" />
+              <button>
+                <svg
+                  class="icon icon--search"
+                  viewBox="0 0 21 21"
+                  role="presentation"
+                >
+                  <g
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path d="M19 19l-5-5" stroke-linecap="square"></path>
+                    <circle cx="8.5" cy="8.5" r="7.5"></circle>
+                  </g>
+                </svg>
+              </button>
+            </div>
           </section>
 
           {/* Other sections */}
@@ -79,6 +99,21 @@ function Header() {
             <h1>other1</h1>
             <h1>other2</h1>
           </section>
+        </section>
+        <section className="navigation">
+          {/* Nav links */}
+          <nav>
+            <ul>
+              <li>
+                {/* Home link */}
+                <CustomLink to="/">Home</CustomLink>
+              </li>
+              <li>
+                {/* Checkout link */}
+                <CustomLink to="/checkout">Checkout</CustomLink>
+              </li>
+            </ul>
+          </nav>
         </section>
       </header>
     </>
