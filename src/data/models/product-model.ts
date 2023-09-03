@@ -1,3 +1,8 @@
-import { Product } from "../../domain/entities/product";
-
-export type ProductModel = Product;
+export type ProductModel = {
+  id?: string;
+  name: string;
+  description: string;
+  quantity: number;
+  price: number;
+  images: string[];
+};
