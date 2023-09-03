@@ -1,0 +1,12 @@
+{
+  "name": "BackendMxTeras",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ruyter Araujo Rocha <ruyteraraujo992@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.5.9",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
