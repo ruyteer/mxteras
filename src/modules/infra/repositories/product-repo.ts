@@ -18,4 +18,8 @@ export class ProductRepository implements IProductRepository {
   async update(product: ProductModel, id: string): Promise<void> {
     await prisma.product.update({ where: { id }, data: product });
   }
+
+  async delete(id: string): Promise<void> {
+    await prisma.product.delete({ where: { id } });
+  }
 }

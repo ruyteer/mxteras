@@ -5,4 +5,5 @@ export interface IProductRepository {
   getAll(): Promise<ProductModel[]>;
   getOne(id: string): Promise<ProductModel>;
   update(product: ProductModel, id: string): Promise<void>;
+  delete(id: string): Promise<void>;
 }
