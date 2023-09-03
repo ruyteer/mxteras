@@ -1,5 +1,5 @@
-import { Product } from "../../domain/entities/product";
-import { CreateProductUseCase } from "../../domain/usecases/product/create-product";
+import { Product } from "../../../domain/entities/product";
+import { CreateProductUseCase } from "../../../domain/usecases/product/create-product";
 import { IProductRepository } from "../contracts/product-repository";
 import { MissingParamError } from "../errors";
 

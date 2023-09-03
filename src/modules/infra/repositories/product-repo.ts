@@ -1,4 +1,4 @@
-import { prisma } from "../../config/Prisma";
+import { prisma } from "../../../config/Prisma";
 import { IProductRepository } from "../../data/contracts/product-repository";
 import { ProductModel } from "../../data/models/product-model";
 

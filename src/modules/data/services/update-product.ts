@@ -1,5 +1,5 @@
-import { Product } from "../../domain/entities/product";
-import { UpdateProductUseCase } from "../../domain/usecases/product/update-product";
+import { Product } from "../../../domain/entities/product";
+import { UpdateProductUseCase } from "../../../domain/usecases/product/update-product";
 import { IProductRepository } from "../contracts/product-repository";
 import { MissingParamError, MissingProductError } from "../errors";
 

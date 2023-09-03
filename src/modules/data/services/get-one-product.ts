@@ -1,4 +1,4 @@
-import { GetOneProductUseCase } from "../../domain/usecases/product/get-one-product";
+import { GetOneProductUseCase } from "../../../domain/usecases/product/get-one-product";
 import { IProductRepository } from "../contracts/product-repository";
 import { MissingParamError, MissingProductError } from "../errors";
 import { ProductModel } from "../models/product-model";
