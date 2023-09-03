@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  postgres:
+    image: postgres
+    container_name: MXT
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ruyter99
+    volumes:
+      - "./data:/data/postgres"
+    ports:
+      - "5432:5432"
+volumes:
+  postgres:
