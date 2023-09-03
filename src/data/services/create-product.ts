@@ -1,7 +1,7 @@
 import { Product } from "../../domain/entities/product";
 import { CreateProductUseCase } from "../../domain/usecases/product/create-product";
 import { IProductRepository } from "../contracts/product-repository";
-import { MissingParamError } from "../errors/missing-param";
+import { MissingParamError } from "../errors";
 
 export class CreateProductService implements CreateProductUseCase {
   constructor(private readonly productRepository: IProductRepository) {}
