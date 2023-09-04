@@ -16,7 +16,7 @@ export class VerifyIsAdmin implements Controller {
 
       const token = headers && headers.split(" ")[1];
 
-      this.jwtVerifyToken.checkAdmin(token);
+      await this.jwtVerifyToken.checkAdmin(token);
 
       return okResponse();
     } catch (error) {
