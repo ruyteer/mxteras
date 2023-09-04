@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Ruyter Araujo Rocha <ruyteraraujo992@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --transpile-only --respawn src/modules/main/server.ts"
+  },
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/node": "^20.5.9",
