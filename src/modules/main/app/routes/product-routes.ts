@@ -12,7 +12,7 @@ const productRouter = Router();
 productRouter.get("/products", productAdapt(makeGetAllProduct()));
 productRouter.post(
   "/product/create",
-
+  middlewareAdapt(makeMiddlewareProduct()),
   productAdapt(makeCreateProduct())
 );
 
