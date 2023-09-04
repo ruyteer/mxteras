@@ -5,6 +5,7 @@
   "author": "Ruyter Araujo Rocha <ruyteraraujo992@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/node": "^20.5.9",
     "prisma": "^5.2.0",
     "ts-node-dev": "^2.0.0",
@@ -13,6 +14,7 @@
   "dependencies": {
     "@prisma/client": "5.2.0",
     "@types/jsonwebtoken": "^9.0.2",
+    "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2"
   }
 }
