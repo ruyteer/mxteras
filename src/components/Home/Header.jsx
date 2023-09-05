@@ -81,10 +81,10 @@ function Header() {
                   role="presentation"
                 >
                   <g
-                    stroke-width="2"
+                    strokeWidth="2"
                     stroke="currentColor"
                     fill="none"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                   >
                     <path d="M19 19l-5-5" stroke-linecap="square"></path>
                     <circle cx="8.5" cy="8.5" r="7.5"></circle>
@@ -92,12 +92,20 @@ function Header() {
                 </svg>
               </button>
             </div>
-          </section>
-
-          {/* Other sections */}
-          <section className="others">
-            <h1>other1</h1>
-            <h1>other2</h1>
+            <section className="others">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 36 24"
+                width="37"
+                fill="white"
+              >
+                <path d="M22.713,4.077A2.993,2.993,0,0,0,20.41,3H4.242L4.2,2.649A3,3,0,0,0,1.222,0H1A1,1,0,0,0,1,2h.222a1,1,0,0,1,.993.883l1.376,11.7A5,5,0,0,0,8.557,19H19a1,1,0,0,0,0-2H8.557a3,3,0,0,1-2.82-2h11.92a5,5,0,0,0,4.921-4.113l.785-4.354A2.994,2.994,0,0,0,22.713,4.077ZM21.4,6.178l-.786,4.354A3,3,0,0,1,17.657,13H5.419L4.478,5H20.41A1,1,0,0,1,21.4,6.178Z"></path>
+                <circle cx="7" cy="22" r="2"></circle>
+                <circle cx="17" cy="22" r="2"></circle>
+              </svg>
+              <a>Carrinho</a>
+            </section>
           </section>
         </section>
         <section className="navigation">
@@ -105,8 +113,19 @@ function Header() {
           <nav>
             <ul>
               <li>
-                {/* Home link */}
-                <CustomLink to="/">Home</CustomLink>
+                <CustomLink to="/">Início</CustomLink>
+              </li>
+              <li>
+                <CustomLink to="/">Contas</CustomLink>
+              </li>
+              <li>
+                <CustomLink to="/">Entrar em contato</CustomLink>
+              </li>
+              <li>
+                <CustomLink to="/">Teras LDMO</CustomLink>
+              </li>
+              <li>
+                <CustomLink to="/">Teras GDMO</CustomLink>
               </li>
               <li>
                 {/* Checkout link */}

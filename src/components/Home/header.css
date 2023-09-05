@@ -28,6 +28,7 @@ nav li {
   padding-inline: calc(var(--_gap) / 6);
   position: relative;
   overflow: hidden;
+  margin-left: 8px;
 }
 
 nav li::after {
@@ -57,7 +58,8 @@ nav li:has(+ :hover)::after {
 }
 
 nav ul a {
-  font-weight: 550;
+  font-weight: 100;
+  font-size: 15px;
   color: inherit;
   transition: 400ms;
 }
@@ -122,6 +124,7 @@ header .logo {
 }
 
 .search {
+  margin-top: 25px;
   position: relative;
   display: flex;
   height: 44px;
@@ -135,7 +138,7 @@ header .logo {
 
 .searchBar {
   display: flex;
-
+  margin-right: 280px;
   margin-bottom: 10px;
 }
 
@@ -174,20 +177,20 @@ header .logo {
   text-align: center;
   padding: auto;
 }
-
 .others {
-  width: 30px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
 }
 
-.others h1 {
+.others svg {
   position: relative;
-  padding: 2px;
-  right: 3px;
-  top: 0;
+  margin-top: 20px;
+  left: 80%;
+}
+
+.others a {
+  position: relative;
+  left: 75%;
+  top: 35px;
 }
 
 .logo {
