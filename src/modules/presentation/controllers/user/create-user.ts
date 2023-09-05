@@ -1,0 +1,19 @@
+import { CreateUserService } from "../../../data/services/user/create-user";
+import { badResponse, okResponse } from "../../helpers/http-response";
+import { Controller, httpRequest, httpResponse } from "../../protocols";
+
+export class CreateUserController implements Controller {
+  constructor(private readonly createUserUseCase: CreateUserService) {}
+
+  async handle(httpRequest?: httpRequest): Promise<httpResponse> {
+    try {
+      const { nickname, email, number } = httpRequest.req.body;
+
+      await this.createUserUseCase.create({ nickname, email, number });
+
+      return okResponse();
+    } catch (error) {
+      return badResponse(error);
+    }
+  }
+}
