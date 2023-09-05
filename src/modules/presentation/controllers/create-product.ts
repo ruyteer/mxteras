@@ -10,7 +10,15 @@ export class CreateProductController implements Controller {
     try {
       const data: ProductViewModel = httpRequest.req.body;
 
-      await this.createProductUseCase.create(data);
+      const imagesUrl = httpRequest.req.file.firebaseUrl;
+
+      await this.createProductUseCase.create({
+        name: data.name,
+        description: data.description,
+        price: parseInt(data.price),
+        quantity: parseInt(data.quantity),
+        images: [imagesUrl],
+      });
 
       return okResponse();
     } catch (error) {

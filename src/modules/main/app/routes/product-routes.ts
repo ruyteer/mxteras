@@ -5,14 +5,18 @@ import {
   makeMiddlewareProduct,
   makeCreateProduct,
   makeGetAllProduct,
+  makeUploadMiddleware,
 } from "../factories";
+import { upload } from "../../../infra/services/multer/multer-config";
 
 const productRouter = Router();
 
 productRouter.get("/products", productAdapt(makeGetAllProduct()));
 productRouter.post(
   "/product/create",
-  middlewareAdapt(makeMiddlewareProduct()),
+  upload.single("file"),
+  middlewareAdapt(makeUploadMiddleware()),
+  // middlewareAdapt(makeMiddlewareProduct()),
   productAdapt(makeCreateProduct())
 );
 
