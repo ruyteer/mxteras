@@ -18,3 +18,10 @@ model Product {
   quantity Int
   images String[]
 }
+
+model User {
+  id String @id @default(uuid())
+  nickname String
+  number Int
+  email String
+}
