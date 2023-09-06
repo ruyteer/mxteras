@@ -8,6 +8,7 @@ import {
   makeUploadMiddleware,
 } from "../factories";
 import { upload } from "../../../infra/services/multer/multer-config";
+import { makeDeleteProduct } from "../factories/make-delete";
 
 const productRouter = Router();
 
@@ -16,8 +17,14 @@ productRouter.post(
   "/product/create",
   upload.single("file"),
   middlewareAdapt(makeUploadMiddleware()),
-  // middlewareAdapt(makeMiddlewareProduct()),
+  middlewareAdapt(makeMiddlewareProduct()),
   productAdapt(makeCreateProduct())
+);
+
+productRouter.delete(
+  "/product/delete/:id",
+  middlewareAdapt(makeMiddlewareProduct()),
+  productAdapt(makeDeleteProduct())
 );
 
 export { productRouter };
