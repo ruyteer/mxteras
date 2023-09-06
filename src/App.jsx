@@ -1,5 +1,6 @@
-import Router from './Router';
-import Header from './components/Home/Header';
+import Router from "./Router";
+import Header from "./components/Home/Header";
+import Footer from "./components/Home/footer/Footer";
 
 /**
  * App component
@@ -16,6 +17,8 @@ function App() {
 
       {/* Render the router */}
       <Router />
+
+      <Footer />
     </>
   );
 }

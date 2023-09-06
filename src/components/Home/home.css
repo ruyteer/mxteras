@@ -210,7 +210,7 @@ main {
 }
 
 .products-page-one {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .products-page-one .titles {
@@ -260,6 +260,11 @@ main {
 .products .product-card {
   display: flex;
   margin-left: 50px;
+  transition: 500ms;
+}
+
+.products .items:hover {
+  transform: scale(1.05);
 }
 
 .product-card .items {

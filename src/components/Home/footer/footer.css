@@ -1,0 +1,84 @@
+footer {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+}
+
+.section-title {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.footer-left {
+  display: flex;
+}
+
+.contact {
+  display: flex;
+  margin-left: 33px;
+  flex-direction: column;
+}
+
+.contact .section-title {
+  margin-top: 20px;
+}
+
+.contact h3 {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.contact h3 span {
+  font-weight: 400;
+}
+
+.contact .hour {
+  margin-top: 20px;
+}
+
+.contact .address {
+  margin-top: 40px;
+}
+
+.contact .address a {
+  color: white;
+  font-size: 13px;
+}
+
+.infos {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.infos li {
+  margin-top: 10px;
+}
+
+.infos li a {
+  color: white;
+}
+
+.contact-me {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.contact-me li {
+  margin-top: 10px;
+}
+
+.contact-me li a {
+  color: white;
+}
+
+.final-considerations {
+  margin: 25px;
+  text-align: center;
+}
+
+.final-considerations img {
+  position: relative;
+  top: 40px;
+}
