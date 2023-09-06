@@ -1,65 +1,120 @@
-import React from "react";
-import banner1 from "../../assets/banner-1.png";
-import banner2 from "../../assets/banner-2.png";
-import "./home.css";
-import Products from "./products/Products";
-import Carousel from "react-bootstrap/Carousel";
+import React, { useEffect, useState } from "react";
+import "./product-page.css";
+import Products from "../Home/products/Products";
 
-function Home() {
+function ProductPage({ type }) {
+  const [title, setTitle] = useState("");
+  const [product, setProduct] = useState("");
+  useEffect(() => {
+    if (type === "nadmo") {
+      setTitle("Teras América do Norte");
+      setProduct("nadmo");
+    } else if (type === "ladmo") {
+      setTitle("Teras América Latina");
+      setProduct("ladmo");
+    } else if (type === "contas") {
+      setTitle("Contas");
+      setProduct("conta");
+    }
+  }, [type]);
   return (
-    <main>
-      <section className="slide-show">
-        <Carousel>
-          <Carousel.Item>
-            <img
-              src={banner1}
-              alt="banner"
-              style={{
-                width: "1286px",
-                height: "428px",
-              }}
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src={banner2}
-              alt="banner"
-              style={{
-                width: "1286px",
-                height: "428px",
-              }}
-            />
-          </Carousel.Item>
-        </Carousel>
-      </section>
+    <>
+      <div className="product-page">
+        <section className="menu">
+          <h1>Menu principal</h1>
+          <ul>
+            <li>
+              <a href="/">Início</a>
+            </li>
+            <li>
+              <a
+                href="/contas"
+                className={`${type === "contas" ? "principal" : "contas"}`}
+              >
+                Contas
+              </a>
+            </li>
+            <li>
+              <a href="/">Entrar em contato</a>
+            </li>
+            <li>
+              <a
+                href="/ladmo"
+                className={` ${type === "ladmo" ? "principal" : "ladmo"}`}
+              >
+                Teras LDMO
+              </a>
+            </li>
+            <li>
+              <a
+                href="/nadmo"
+                className={`${type === "nadmo" ? "principal" : "nadmo"}`}
+              >
+                Teras GDMO
+              </a>
+            </li>
+          </ul>
+        </section>
 
-      <section className="products-page-one">
-        <div className="titles">
-          <h1>NADMO ou GDMO (Inglês - Global)</h1>
-          <a href="/nadmo">Ver todos</a>
-        </div>
-        <div className="line"></div>
-        <Products category="nadmo" />
-      </section>
+        <section className="show-products">
+          <div className="header">
+            <h1>{title}</h1>
 
-      <section className="products-page-one part2">
-        <div className="titles">
-          <h1>LADMO ou LDMO (Português)</h1>
-          <a href="/">Ver todos</a>
-        </div>
-        <div className="line-ldmo"></div>
-        <Products category="ladmo" />
-      </section>
+            <ul>
+              <li>
+                <p>Mostrando 1 - 3 de 3 produtos</p>
+              </li>
+              <li>
+                <p>
+                  Mostrar 24 por página
+                  <button>
+                    <svg
+                      className="icon icon--arrow-bottom"
+                      viewBox="0 0 12 8"
+                      role="presentation"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        d="M10 2L6 6 2 2"
+                        fill="none"
+                        strokeLinecap="square"
+                      ></path>
+                    </svg>
+                  </button>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Ordernar por: Em destaque
+                  <button>
+                    <svg
+                      className="icon icon--arrow-bottom"
+                      viewBox="0 0 12 8"
+                      role="presentation"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        d="M10 2L6 6 2 2"
+                        fill="none"
+                        strokeLinecap="square"
+                      ></path>
+                    </svg>
+                  </button>
+                </p>
+              </li>
+            </ul>
+            <div className="line"></div>
+          </div>
 
-      <section className="products-page-one part3">
-        <div className="titles">
-          <h1>Contas</h1>
-          <a href="/">Ver todos</a>
-        </div>
-        <div className="line-accounts"></div>
-        <Products category="conta" />
-      </section>
-
+          <ul>
+            <li className="products-list">
+              <Products category={product} />
+            </li>
+          </ul>
+        </section>
+      </div>
       <section className="info-list">
         <ul>
           <li>
@@ -211,8 +266,8 @@ function Home() {
           </li>
         </ul>
       </section>
-    </main>
+    </>
   );
 }
 
-export default Home;
+export default ProductPage;

@@ -16,6 +16,7 @@ footer {
 }
 
 .contact {
+  margin-top: 20px;
   display: flex;
   margin-left: 33px;
   flex-direction: column;

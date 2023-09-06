@@ -267,6 +267,10 @@ main {
   transform: scale(1.05);
 }
 
+.product-card ul {
+  display: flex;
+}
+
 .product-card .items {
   height: 474px;
   width: 244px;
