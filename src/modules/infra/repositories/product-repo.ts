@@ -1,22 +1,42 @@
 import { prisma } from "../../../config/Prisma";
 import { IProductRepository } from "../../data/contracts/product-repository";
 import { ProductModel } from "../../data/models/product-model";
+import { ProductView } from "../../data/views/product";
 
 export class ProductRepository implements IProductRepository {
   async create(product: ProductModel): Promise<void> {
-    await prisma.product.create({ data: product });
+    await prisma.product.create({
+      data: {
+        category: product.category,
+        description: product.description,
+        name: product.name,
+        price: parseFloat(product.price),
+        quantity: product.quantity,
+        images: product.images,
+      },
+    });
   }
 
-  async getAll(): Promise<ProductModel[]> {
+  async getAll(): Promise<ProductView[]> {
     return await prisma.product.findMany();
   }
 
-  async getOne(id: string): Promise<ProductModel> {
+  async getOne(id: string): Promise<ProductView> {
     return await prisma.product.findUnique({ where: { id } });
   }
 
   async update(product: ProductModel, id: string): Promise<void> {
-    await prisma.product.update({ where: { id }, data: product });
+    await prisma.product.update({
+      where: { id },
+      data: {
+        category: product.category,
+        description: product.description,
+        name: product.name,
+        price: parseFloat(product.price),
+        quantity: product.quantity,
+        images: product.images,
+      },
+    });
   }
 
   async delete(id: string): Promise<void> {

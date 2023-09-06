@@ -15,8 +15,9 @@ export class CreateProductController implements Controller {
       await this.createProductUseCase.create({
         name: data.name,
         description: data.description,
-        price: parseInt(data.price),
+        price: data.price,
         quantity: parseInt(data.quantity),
+        category: data.category,
         images: [imagesUrl],
       });
 
