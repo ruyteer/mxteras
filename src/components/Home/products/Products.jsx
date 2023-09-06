@@ -15,9 +15,9 @@ function Products(props) {
             }}
           />
           <a href="/">Teras Servidor Alphamon - NADMO</a>
-          <span>R$ 0,30</span>
+          <span className="price">R$ 0,30</span>
           <p>em até 12x de R$ 0,02</p>
-          <span>Em estoque, 2710 unidades</span>
+          <span className="stock">Em estoque, 2710 unidades</span>
           <button>Comprar agora</button>
         </div>
       </div>
