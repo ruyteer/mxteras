@@ -1,3 +1,7 @@
+main {
+  height: 200vh;
+}
+
 .slide-show {
   margin-top: 40px;
   text-align: center;
@@ -5,4 +9,88 @@
 
 .slide-show img {
   border-radius: 10px;
+}
+
+.products-page-one {
+  margin-top: 60px;
+}
+
+.products-page-one .titles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.products-page-one .titles h1 {
+  margin-left: 35px;
+  font-size: 22px;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+}
+
+.products-page-one .titles a {
+  margin-right: 40px;
+  font-size: 20px;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  color: black;
+}
+
+.products-page-one .line {
+  width: 20rem;
+  background-color: black;
+  height: 6px;
+  margin-left: 35px;
+  border-radius: 5px;
+}
+
+.products .product-card {
+  height: 474px;
+  width: 244px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 25px -26px black;
+  transition: all 0.5s;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.product-card .items img {
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.product-card .items {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins, sans-serif;
+}
+
+.product-card .items a {
+  margin-top: 10px;
+  font-size: 15px;
+  color: black;
+}
+
+.product-card .items span {
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.product-card .items p {
+  font-size: 15px;
+  margin-top: -5px;
+}
+
+.product-card .items button {
+  height: 42px;
+  width: 206px;
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  border: none;
 }

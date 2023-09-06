@@ -18,6 +18,11 @@ function Home() {
       </section>
 
       <section className="products-page-one">
+        <div className="titles">
+          <h1>NADMO ou GDMO (Inglês - Global)</h1>
+          <a href="/">Ver todos</a>
+        </div>
+        <div className="line"></div>
         <Products category={"nadmo"} />
       </section>
     </main>
