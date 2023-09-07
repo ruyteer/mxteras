@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 const url = "http://localhost:3000";
 
-function Products({ category }) {
+function Products({ category, limit }) {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -22,17 +22,19 @@ function Products({ category }) {
     }
   };
 
-  const filteredProducts = product.filter((result) => {
-    if (category === "nadmo") {
-      return result.category === "nadmo";
-    } else if (category === "ladmo") {
-      return result.category === "ladmo";
-    } else if (category === "conta") {
-      return result.category === "conta";
-    }
+  const filteredProducts = product
+    .filter((result) => {
+      if (category === "nadmo") {
+        return result.category === "nadmo";
+      } else if (category === "ladmo") {
+        return result.category === "ladmo";
+      } else if (category === "conta") {
+        return result.category === "conta";
+      }
 
-    return true;
-  });
+      return true;
+    })
+    .slice(0, limit);
 
   return (
     <section className="products">
@@ -53,21 +55,25 @@ function Products({ category }) {
                   <a href="/">{result.name}</a>
                   <span className="price">R$ {result.price}</span>
                   <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
-                  <ul>
-                    <li className="stock">
-                      {result.quantity === 1 ? (
-                        <>
-                          <p style={{ color: "red", fontSize: "13px" }}>
-                            Apenas {result.quantity} unidade restante
-                          </p>
-                        </>
-                      ) : result.quantity < 1 ? (
-                        <>Esgotado!</>
-                      ) : (
-                        <> Em estoque, {result.quantity} unidades</>
-                      )}
-                    </li>
-                  </ul>
+
+                  <div className="stock">
+                    {result.quantity === 1 ? (
+                      <>
+                        <p style={{ color: "red", fontSize: "13px" }}>
+                          Apenas {result.quantity} unidade restante
+                        </p>
+                      </>
+                    ) : result.quantity < 1 ? (
+                      <>
+                        <p style={{ color: "red", fontSize: "13px" }}>
+                          Esgotado!
+                        </p>
+                      </>
+                    ) : (
+                      <>Em estoque, {result.quantity} unidades</>
+                    )}
+                  </div>
+
                   <button>Comprar agora</button>
                 </div>
               </li>

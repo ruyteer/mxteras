@@ -268,7 +268,10 @@ main {
 }
 
 .product-card ul {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  grid-auto-rows: auto;
 }
 
 .product-card .items {

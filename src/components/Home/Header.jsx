@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import logo from "../../assets/logo.png";
 
-function CustomLink({ to, children }) {
+export function CustomLink({ to, children }) {
   const location = useLocation();
   const [isActive, setIsActive] = useState(false);
 
@@ -116,19 +116,18 @@ function Header() {
                 <CustomLink to="/">Início</CustomLink>
               </li>
               <li>
-                <CustomLink to="/">Contas</CustomLink>
+                <CustomLink to="/contas">Contas</CustomLink>
               </li>
               <li>
                 <CustomLink to="/">Entrar em contato</CustomLink>
               </li>
               <li>
-                <CustomLink to="/">Teras LDMO</CustomLink>
+                <CustomLink to="/ladmo">Teras LDMO</CustomLink>
               </li>
               <li>
-                <CustomLink to="/">Teras GDMO</CustomLink>
+                <CustomLink to="/nadmo">Teras GDMO</CustomLink>
               </li>
               <li>
-                {/* Checkout link */}
                 <CustomLink to="/checkout">Checkout</CustomLink>
               </li>
             </ul>

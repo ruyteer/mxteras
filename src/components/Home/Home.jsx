@@ -4,6 +4,7 @@ import banner2 from "../../assets/banner-2.png";
 import "./home.css";
 import Products from "./products/Products";
 import Carousel from "react-bootstrap/Carousel";
+import { CustomLink } from "./Header";
 
 function Home() {
   return (
@@ -39,25 +40,26 @@ function Home() {
           <a href="/nadmo">Ver todos</a>
         </div>
         <div className="line"></div>
-        <Products category="nadmo" />
+        <Products category="nadmo" limit={3} />
       </section>
 
       <section className="products-page-one part2">
         <div className="titles">
           <h1>LADMO ou LDMO (Português)</h1>
-          <a href="/">Ver todos</a>
+          <a href="/ladmo">Ver todos</a>
         </div>
         <div className="line-ldmo"></div>
-        <Products category="ladmo" />
+        <Products category="ladmo" limit={3} />
       </section>
 
       <section className="products-page-one part3">
         <div className="titles">
           <h1>Contas</h1>
-          <a href="/">Ver todos</a>
+          {/* <a href="/contas">Ver todos</a> */}
+          <CustomLink to="/contas">Ver todos</CustomLink>
         </div>
         <div className="line-accounts"></div>
-        <Products category="conta" />
+        <Products category="conta" limit={3} />
       </section>
 
       <section className="info-list">
