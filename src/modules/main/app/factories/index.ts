@@ -5,3 +5,5 @@ export * from "./product/make-admin-login";
 export * from "./product/make-uploadfile-middleware";
 export * from "./user/make-create-user";
 export * from "./user/make-get-users";
+export * from "./product/make-delete";
+export * from "./product/make-get-one";

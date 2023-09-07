@@ -6,9 +6,10 @@ import {
   makeCreateProduct,
   makeGetAllProduct,
   makeUploadMiddleware,
+  makeDeleteProduct,
+  makeGetOneProduct,
 } from "../factories";
 import { upload } from "../../../infra/services/multer/multer-config";
-import { makeDeleteProduct } from "../factories/make-delete";
 
 const productRouter = Router();
 
@@ -26,5 +27,7 @@ productRouter.delete(
   middlewareAdapt(makeMiddlewareProduct()),
   productAdapt(makeDeleteProduct())
 );
+
+productRouter.get("/product/:id", productAdapt(makeGetOneProduct()));
 
 export { productRouter };
