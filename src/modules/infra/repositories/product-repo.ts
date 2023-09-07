@@ -5,6 +5,7 @@ import { ProductView } from "../../data/views/product";
 
 export class ProductRepository implements IProductRepository {
   async create(product: ProductModel): Promise<void> {
+    console.log(product);
     await prisma.product.create({
       data: {
         category: product.category,

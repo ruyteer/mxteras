@@ -7,10 +7,9 @@ export class UploadFile implements Controller {
 
   async handle(httpRequest?: httpRequest): Promise<httpResponse> {
     try {
-      const file = httpRequest.req.file;
-      const fileUrl = await this.firebaseUpload.uploadFile(file);
-
-      httpRequest.req.file.firebaseUrl = fileUrl;
+      const files = httpRequest.req.files;
+      const fileUrl = await this.firebaseUpload.uploadFile(files);
+      httpRequest.req.files.firebaseUrl = fileUrl;
 
       return okResponse();
     } catch (error) {

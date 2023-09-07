@@ -3,32 +3,39 @@ import { FileViewModel } from "../../../presentation/views/file";
 import { bucket } from "./firebase-config";
 
 export class FirebaseUpload implements IFirebaseUpload {
-  async uploadFile(file: FileViewModel): Promise<string> {
-    return new Promise(async (resolve, reject) => {
-      const newFile = bucket.file(file.originalname);
+  async uploadFile(files: FileViewModel[]): Promise<string[]> {
+    return new Promise((resolve, reject) => {
+      let filesUrls: string[] = [];
 
-      const stream = newFile.createWriteStream({
-        metadata: {
-          contentType: file.mimetype,
-        },
-      });
+      files.map((file) => {
+        const newFile = bucket.file(file.originalname);
 
-      stream.on("error", (error) => {
-        reject(new Error(error.message));
-      });
-
-      stream.on("finish", async () => {
-        await newFile.makePublic();
-
-        const signedUrl = await newFile.getSignedUrl({
-          action: "read",
-          expires: "03-01-2500",
+        const stream = newFile.createWriteStream({
+          metadata: {
+            contentType: file.mimetype,
+          },
         });
 
-        resolve(signedUrl[0]);
-      });
+        stream.on("error", (error) => {
+          reject(new Error(error.message));
+        });
 
-      stream.end(file.buffer);
+        stream.on("finish", async () => {
+          await newFile.makePublic();
+
+          const signedUrl = await newFile.getSignedUrl({
+            action: "read",
+            expires: "03-01-2500",
+          });
+
+          filesUrls.push(signedUrl[0]);
+          if (filesUrls.length === files.length) {
+            resolve(filesUrls);
+          }
+        });
+
+        stream.end(file.buffer);
+      });
     });
   }
 }

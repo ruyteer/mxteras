@@ -10,7 +10,8 @@ export class CreateProductController implements Controller {
     try {
       const data: ProductViewModel = httpRequest.req.body;
 
-      const imagesUrl = httpRequest.req.file.firebaseUrl;
+      const imagesUrl = httpRequest.req.files.firebaseUrl;
+      console.log("controller", imagesUrl);
 
       await this.createProductUseCase.create({
         name: data.name,
@@ -18,7 +19,7 @@ export class CreateProductController implements Controller {
         price: data.price,
         quantity: parseInt(data.quantity),
         category: data.category,
-        images: [imagesUrl],
+        images: imagesUrl,
       });
 
       return okResponse();

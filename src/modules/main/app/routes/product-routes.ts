@@ -15,7 +15,7 @@ const productRouter = Router();
 productRouter.get("/products", productAdapt(makeGetAllProduct()));
 productRouter.post(
   "/product/create",
-  upload.single("file"),
+  upload.array("file"),
   middlewareAdapt(makeUploadMiddleware()),
   middlewareAdapt(makeMiddlewareProduct()),
   productAdapt(makeCreateProduct())

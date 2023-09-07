@@ -1,5 +1,5 @@
 import { FileViewModel } from "../views/file";
 
 export interface IFirebaseUpload {
-  uploadFile(file: FileViewModel): Promise<string>;
+  uploadFile(files: FileViewModel[]): Promise<string[]>;
 }
