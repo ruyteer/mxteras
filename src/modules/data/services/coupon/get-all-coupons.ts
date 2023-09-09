@@ -3,7 +3,7 @@ import { ICouponRepository } from "../../contracts/coupon-repository";
 import { MissingCouponError } from "../../errors/missing-coupons";
 import { CouponModel } from "../../models/coupon-model";
 
-export class CreateCouponService implements GetAllCouponsUseCase {
+export class GetAllCouponsService implements GetAllCouponsUseCase {
   constructor(private readonly couponRepository: ICouponRepository) {}
 
   async getAll(): Promise<CouponModel[]> {
