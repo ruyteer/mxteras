@@ -7,9 +7,9 @@ export class CreateUserController implements Controller {
 
   async handle(httpRequest?: httpRequest): Promise<httpResponse> {
     try {
-      const { nickname, email, number } = httpRequest.req.body;
+      const { nickname, email, number, name } = httpRequest.req.body;
 
-      await this.createUserUseCase.create({ nickname, email, number });
+      await this.createUserUseCase.create({ name, nickname, email, number });
 
       return okResponse();
     } catch (error) {
