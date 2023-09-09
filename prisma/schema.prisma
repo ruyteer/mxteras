@@ -26,3 +26,9 @@ model User {
   number Int
   email String
 }
+
+model Coupon {
+  id String @id @default(uuid())
+  code String
+  discount Int
+}
