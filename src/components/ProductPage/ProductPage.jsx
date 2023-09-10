@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./product-page.css";
 import Products from "../Home/products/Products";
+import { Link } from "react-router-dom";
 
 function ProductPage({ type }) {
   const [title, setTitle] = useState("");
@@ -19,6 +20,35 @@ function ProductPage({ type }) {
   }, [type]);
   return (
     <>
+      <nav className="path-links">
+        <ul>
+          <li>
+            <Link to="/">Página Inicial</Link>
+          </li>
+          <li>
+            <svg
+              class="icon icon--arrow-right"
+              viewBox="0 0 8 12"
+              role="presentation"
+              style={{
+                height: "8px",
+                width: "6px",
+              }}
+            >
+              <path
+                stroke="currentColor"
+                strokeWidth="2"
+                d="M2 2l4 4-4 4"
+                fill="none"
+                strokeLinecap="square"
+              ></path>
+            </svg>
+          </li>
+          <li>
+            <Link to={`/${title}`}>{title}</Link>
+          </li>
+        </ul>
+      </nav>
       <div className="product-page">
         <section className="menu">
           <h1>Menu principal</h1>

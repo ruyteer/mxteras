@@ -5,10 +5,17 @@ import "./home.css";
 import Products from "./products/Products";
 import Carousel from "react-bootstrap/Carousel";
 import { CustomLink } from "./Header";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <main>
+      <img
+        src="//cdn.shopify.com/s/files/1/0629/7449/2915/t/6/assets/whatsapp.svg?v=8122552569372891836"
+        alt="WhatsApp"
+        className="whatsapp"
+      ></img>
       <section className="slide-show">
         <Carousel>
           <Carousel.Item>
@@ -37,7 +44,7 @@ function Home() {
       <section className="products-page-one">
         <div className="titles">
           <h1>NADMO ou GDMO (Inglês - Global)</h1>
-          <a href="/nadmo">Ver todos</a>
+          <CustomLink to="/nadmo">Ver todos</CustomLink>
         </div>
         <div className="line"></div>
         <Products category="nadmo" limit={3} />
@@ -46,7 +53,7 @@ function Home() {
       <section className="products-page-one part2">
         <div className="titles">
           <h1>LADMO ou LDMO (Português)</h1>
-          <a href="/ladmo">Ver todos</a>
+          <CustomLink to="/ladmo">Ver todos</CustomLink>
         </div>
         <div className="line-ldmo"></div>
         <Products category="ladmo" limit={3} />
@@ -55,7 +62,6 @@ function Home() {
       <section className="products-page-one part3">
         <div className="titles">
           <h1>Contas</h1>
-          {/* <a href="/contas">Ver todos</a> */}
           <CustomLink to="/contas">Ver todos</CustomLink>
         </div>
         <div className="line-accounts"></div>

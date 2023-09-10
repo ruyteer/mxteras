@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const url = "http://localhost:3000";
 
 function Products({ category, limit }) {
@@ -52,7 +53,7 @@ function Products({ category, limit }) {
                       height: "80%",
                     }}
                   />
-                  <a href="/">{result.name}</a>
+                  <a href={`/product/${result.id}`}>{result.name}</a>
                   <span className="price">R$ {result.price}</span>
                   <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
 
@@ -73,8 +74,9 @@ function Products({ category, limit }) {
                       <>Em estoque, {result.quantity} unidades</>
                     )}
                   </div>
-
-                  <button>Comprar agora</button>
+                  <Link to={`/buy/${result.id}`}>
+                    <button>Comprar agora</button>
+                  </Link>
                 </div>
               </li>
             </>

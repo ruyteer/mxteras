@@ -6,9 +6,20 @@
   display: flex;
 }
 
+.path-links {
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.path-links ul {
+  display: flex;
+}
+
 .menu {
   margin-left: 40px;
-  margin-top: 80px;
+  margin-top: 30px;
   background-color: white;
   height: 254px;
   width: 288px;
@@ -45,7 +56,7 @@
 }
 
 .show-products {
-  margin-top: 80px;
+  margin-top: 30px;
   margin-left: 30px;
   background-color: white;
   padding: 20px;
