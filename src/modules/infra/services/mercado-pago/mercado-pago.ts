@@ -11,14 +11,15 @@ export class MercadoPagoCreateOrder implements IMercadoPagoCreateOrder {
     try {
       const mpResponse = await mercadopago.payment.save(data);
 
-      const { status, status_detail, id } = mpResponse.body;
-
-      console.log(mpResponse.body);
+      const { status, status_detail, id, payment_type_id, date_approved } =
+        mpResponse.body;
 
       const response = {
         status,
         status_detail,
         id,
+        date: date_approved,
+        paymentMethod: payment_type_id,
       };
 
       return response;

@@ -13,15 +13,18 @@ export class CreateOrderController implements Controller {
   async handle(httpRequest?: httpRequest): Promise<httpResponse> {
     try {
       const data: MercadoPagoRequest = httpRequest.req.body.data;
-      const { userId, productId } = httpRequest.req.body;
+      const { userId, productId, quantity, price } = httpRequest.req.body;
 
       const response = await this.mercadoPagoCreateOrder.create(data);
 
       await this.createOrderUseCase.create({
         userId,
         productId,
-        date: "1",
-        paymentMethod: "credit",
+        date: response.date,
+        paymentMethod: response.paymentMethod,
+        quantity: parseInt(quantity),
+        price: parseFloat(price),
+        orderID: parseInt(response.id),
       });
 
       return okResponse(response);

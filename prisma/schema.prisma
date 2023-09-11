@@ -26,7 +26,7 @@ model User {
   nickname String
   number Int
   email String
-  order Order[]
+  orders Order[]
 }
 
 model Coupon {
@@ -41,5 +41,8 @@ model Order {
   productId String
   paymentMethod String
   date String
+  quantity Int
+  price Float
+  orderID Int
   user User @relation(fields: [userId], references: [id])
 }

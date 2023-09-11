@@ -12,6 +12,8 @@ export class OrderRepository implements IOrderRepository {
   }
 
   async save(order: OrderModel): Promise<void> {
-    await prisma.order.create({ data: order });
+    await prisma.order.create({
+      data: order,
+    });
   }
 }

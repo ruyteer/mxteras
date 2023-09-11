@@ -3,4 +3,7 @@ export type OrderModel = {
   productId: string;
   date: string;
   paymentMethod: string;
+  quantity: number;
+  orderID: number;
+  price: number;
 };

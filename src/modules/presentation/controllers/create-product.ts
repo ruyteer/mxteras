@@ -11,7 +11,6 @@ export class CreateProductController implements Controller {
       const data: ProductViewModel = httpRequest.req.body;
 
       const imagesUrl = httpRequest.req.files.firebaseUrl;
-      console.log("controller", imagesUrl);
 
       await this.createProductUseCase.create({
         name: data.name,

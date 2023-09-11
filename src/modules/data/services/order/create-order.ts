@@ -7,7 +7,15 @@ export class CreateOrderService implements CreateOrderUseCase {
   constructor(private readonly orderRepository: IOrderRepository) {}
 
   async create(order: OrderModel): Promise<void> {
-    const requiredFields = ["userId", "productId", "date", "paymentMethod"];
+    const requiredFields = [
+      "userId",
+      "orderID",
+      "quantity",
+      "price",
+      "productId",
+      "date",
+      "paymentMethod",
+    ];
 
     for (const field of requiredFields) {
       if (!order[field]) {

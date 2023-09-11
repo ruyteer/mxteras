@@ -4,7 +4,7 @@ import { UserModel } from "../../data/models/user-model";
 
 export class UserRepository implements IUserRepository {
   async save(data: UserModel): Promise<UserModel> {
-    return await prisma.user.create({ data: data });
+    return await prisma.user.create({ data });
   }
 
   async getAll(): Promise<UserModel[]> {

@@ -7,7 +7,7 @@ export class CreateUserService implements CreateUserUseCase {
   constructor(private readonly userRepository: IUserRepository) {}
 
   async create(user: UserModel): Promise<UserModel> {
-    const requiredFields = ["nickname", "email", "number"];
+    const requiredFields = ["name", "nickname", "email", "number"];
 
     for (const field of requiredFields) {
       if (!user[field]) {
