@@ -6,7 +6,7 @@ import { UserModel } from "../../models/user-model";
 export class CreateUserService implements CreateUserUseCase {
   constructor(private readonly userRepository: IUserRepository) {}
 
-  async create(user: UserModel): Promise<void> {
+  async create(user: UserModel): Promise<UserModel> {
     const requiredFields = ["nickname", "email", "number"];
 
     for (const field of requiredFields) {
@@ -15,6 +15,6 @@ export class CreateUserService implements CreateUserUseCase {
       }
     }
 
-    await this.userRepository.save(user);
+    return await this.userRepository.save(user);
   }
 }

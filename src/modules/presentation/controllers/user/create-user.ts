@@ -9,9 +9,14 @@ export class CreateUserController implements Controller {
     try {
       const { nickname, email, number, name } = httpRequest.req.body;
 
-      await this.createUserUseCase.create({ name, nickname, email, number });
+      const user = await this.createUserUseCase.create({
+        name,
+        nickname,
+        email,
+        number,
+      });
 
-      return okResponse();
+      return okResponse(user.id);
     } catch (error) {
       return badResponse(error);
     }
