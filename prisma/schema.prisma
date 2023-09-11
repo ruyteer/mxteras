@@ -26,11 +26,20 @@ model User {
   nickname String
   number Int
   email String
-
+  order Order[]
 }
 
 model Coupon {
   id String @id @default(uuid())
   code String
   discount Int
+}
+
+model Order {
+  id String @id @default(uuid())
+  userId String
+  productId String
+  paymentMethod String
+  date String
+  user User @relation(fields: [userId], references: [id])
 }
