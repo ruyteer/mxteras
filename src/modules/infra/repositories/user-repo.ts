@@ -10,4 +10,12 @@ export class UserRepository implements IUserRepository {
   async getAll(): Promise<UserModel[]> {
     return await prisma.user.findMany();
   }
+
+  async getOne(id: string): Promise<UserModel> {
+    return await prisma.user.findUnique({ where: { id } });
+  }
+
+  async delete(id: string): Promise<void> {
+    await prisma.user.delete({ where: { id } });
+  }
 }
