@@ -8,10 +8,21 @@ export class UpdateProductController implements Controller {
 
   async handle(httpRequest?: httpRequest): Promise<httpResponse> {
     try {
-      const data: ProductViewModel = httpRequest.req.body;
+      const { name, description, quantity, price, images, category } =
+        httpRequest.req.body;
       const { id } = httpRequest.req.params;
 
-      await this.updateProductUseCase.update(data, id);
+      await this.updateProductUseCase.update(
+        {
+          name,
+          description,
+          quantity,
+          price,
+          images,
+          category,
+        },
+        id
+      );
 
       return okResponse();
     } catch (error) {

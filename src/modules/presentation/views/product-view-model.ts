@@ -4,4 +4,5 @@ export type ProductViewModel = {
   category: string;
   price: string;
   quantity: string;
+  images: string[];
 };
