@@ -3,5 +3,5 @@ export type UserModel = {
   name: string;
   nickname: string;
   email: string;
-  number: number;
+  number: string;
 };

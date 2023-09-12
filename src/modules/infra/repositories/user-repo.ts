@@ -12,10 +12,14 @@ export class UserRepository implements IUserRepository {
   }
 
   async getOne(id: string): Promise<UserModel> {
-    return await prisma.user.findUnique({ where: { id } });
+    return await prisma.user.findUnique({ where: { id: id } });
   }
 
   async delete(id: string): Promise<void> {
-    await prisma.user.delete({ where: { id } });
+    await prisma.user.delete({ where: { id: id } });
+  }
+
+  async getOneByUser(user: UserModel): Promise<UserModel> {
+    return await prisma.user.findFirst({ where: { number: user.number } });
   }
 }

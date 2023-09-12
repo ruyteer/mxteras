@@ -8,6 +8,7 @@ import {
 } from "../factories";
 import { productAdapt } from "../adapters/product";
 import { middlewareAdapt } from "../adapters/middlewares";
+import { makeDeleteUser } from "../factories/user/make-delete";
 
 const userRouter = Router();
 
@@ -17,7 +18,7 @@ userRouter.get("/users", productAdapt(makeGetUserController()));
 userRouter.delete(
   "/user/delete/:id",
   middlewareAdapt(makeMiddlewareProduct()),
-  productAdapt(makeDeleteProduct())
+  productAdapt(makeDeleteUser())
 );
 
 export { userRouter };

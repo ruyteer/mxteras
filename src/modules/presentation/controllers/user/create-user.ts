@@ -13,7 +13,7 @@ export class CreateUserController implements Controller {
         name,
         nickname,
         email,
-        number: parseInt(number),
+        number: number,
       });
 
       return okResponse(user.id);

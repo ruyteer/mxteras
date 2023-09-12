@@ -15,6 +15,12 @@ export class CreateUserService implements CreateUserUseCase {
       }
     }
 
-    return await this.userRepository.save(user);
+    const userExists = await this.userRepository.getOneByUser(user);
+
+    if (!userExists) {
+      return await this.userRepository.save(user);
+    }
+
+    return userExists;
   }
 }
