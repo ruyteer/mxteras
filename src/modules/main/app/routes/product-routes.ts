@@ -29,11 +29,7 @@ productRouter.delete(
   productAdapt(makeDeleteProduct())
 );
 
-productRouter.put(
-  "/product/update/:id",
-  middlewareAdapt(makeMiddlewareProduct()),
-  productAdapt(makeUpdateProduct())
-);
+productRouter.put("/product/update/:id", productAdapt(makeUpdateProduct()));
 
 productRouter.get("/product/:id", productAdapt(makeGetOneProduct()));
 
