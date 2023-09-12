@@ -17,6 +17,10 @@ export class CreateOrderController implements Controller {
 
       const response = await this.mercadoPagoCreateOrder.create(data);
 
+      if (response.status != "approved") {
+        throw new Error("MercadoPagoPayment: Payment failed! Try again later.");
+      }
+
       await this.createOrderUseCase.create({
         userId,
         productId,
