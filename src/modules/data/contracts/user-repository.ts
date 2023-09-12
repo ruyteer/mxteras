@@ -6,4 +6,5 @@ export interface IUserRepository {
   getOne(id: string): Promise<UserModel>;
   delete(id: string): Promise<void>;
   getOneByUser(user: UserModel): Promise<UserModel>;
+  getOneByEmail(email: string): Promise<UserModel>;
 }

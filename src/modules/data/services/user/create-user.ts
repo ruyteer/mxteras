@@ -15,12 +15,15 @@ export class CreateUserService implements CreateUserUseCase {
       }
     }
 
-    const userExists = await this.userRepository.getOneByUser(user);
+    const userNumberExists = await this.userRepository.getOneByUser(user);
+    const userEmailExists = await this.userRepository.getOneByEmail(user.email);
 
-    if (!userExists) {
+    if (!userNumberExists || !userEmailExists) {
       return await this.userRepository.save(user);
+    } else if (userNumberExists) {
+      return userNumberExists;
+    } else if (userEmailExists) {
+      return userEmailExists;
     }
-
-    return userExists;
   }
 }

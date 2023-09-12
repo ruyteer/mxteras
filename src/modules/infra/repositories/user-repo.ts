@@ -22,4 +22,8 @@ export class UserRepository implements IUserRepository {
   async getOneByUser(user: UserModel): Promise<UserModel> {
     return await prisma.user.findFirst({ where: { number: user.number } });
   }
+
+  async getOneByEmail(email: string): Promise<UserModel> {
+    return await prisma.user.findFirst({ where: { email } });
+  }
 }
