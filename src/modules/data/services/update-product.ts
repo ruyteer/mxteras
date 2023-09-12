@@ -21,6 +21,8 @@ export class UpdateProductService implements UpdateProductUseCase {
     for (const field of receivedFields) {
       if (httpRequest["price"]) {
         updateData["price"] = parseFloat(httpRequest.price);
+      } else if (httpRequest["quantity"] === 0) {
+        updateData["quantity"] = 0;
       } else if (httpRequest[field]) {
         updateData[field] = httpRequest[field];
       }
