@@ -1,6 +1,6 @@
 export type IPayer = {
   email: string;
-  identification: {
+  identification?: {
     type: string;
     number: string;
   };
@@ -13,4 +13,14 @@ export type MercadoPagoRequest = {
   payment_method_id: string;
   token: string;
   transaction_amount: number;
+};
+
+export type PixMercadoPagoRequest = {
+  paymentType: string;
+  selectedPaymentMethod: string;
+  formData: {
+    payer: IPayer;
+    payment_method_id: string;
+    transaction_amount: number;
+  };
 };
