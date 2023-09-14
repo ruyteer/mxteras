@@ -212,11 +212,23 @@ function OneProduct() {
               </span>
             </div>
 
-            <button onClick={handleNavigate}>
-              <Link style={{ color: "white" }} to={`/buy/${product.id}`}>
-                Comprar agora
-              </Link>
-            </button>
+            {product.quantity > 0 ? (
+              <>
+                <button onClick={handleNavigate}>
+                  <Link style={{ color: "white" }} to={`/buy/${product.id}`}>
+                    Comprar agora
+                  </Link>
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleNavigate}>
+                  <Link style={{ color: "red" }} to={`#`}>
+                    Esgotado
+                  </Link>
+                </button>
+              </>
+            )}
 
             <div
               style={{

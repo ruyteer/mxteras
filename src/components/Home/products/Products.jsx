@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const url = "http://localhost:3000";
 
 function Products({ category, limit }) {
@@ -8,6 +8,12 @@ function Products({ category, limit }) {
   useEffect(() => {
     handleGetProduct();
   }, []);
+
+  const handleNavigate = (id) => {
+    const navigate = useNavigate();
+
+    navigate(`/buy/${id}`);
+  };
 
   const handleGetProduct = async () => {
     try {
@@ -41,46 +47,72 @@ function Products({ category, limit }) {
     <section className="products">
       <div className="product-card">
         <ul>
-          {filteredProducts.map((result) => (
-            <>
-              <li>
-                <div className="items">
-                  <img
-                    src={result.images[0]}
-                    alt="prouct logo"
-                    style={{
-                      width: "60%",
-                      height: "80%",
-                    }}
-                  />
-                  <a href={`/product/${result.id}`}>{result.name}</a>
-                  <span className="price">R$ {result.price}</span>
-                  <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((result) => (
+              <>
+                <li>
+                  <div className="items">
+                    <img
+                      src={result.images[0]}
+                      alt="prouct logo"
+                      style={{
+                        width: "60%",
+                        height: "80%",
+                      }}
+                    />
+                    <a href={`/product/${result.id}`}>{result.name}</a>
+                    <span className="price">R$ {result.price}</span>
+                    <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
 
-                  <div className="stock">
-                    {result.quantity === 1 ? (
+                    <div className="stock">
+                      {result.quantity === 1 ? (
+                        <>
+                          <p style={{ color: "red", fontSize: "13px" }}>
+                            Apenas {result.quantity} unidade restante
+                          </p>
+                        </>
+                      ) : result.quantity < 1 ? (
+                        <>
+                          <p style={{ color: "red", fontSize: "13px" }}>
+                            Esgotado!
+                          </p>
+                        </>
+                      ) : (
+                        <>Em estoque, {result.quantity} unidades</>
+                      )}
+                    </div>
+                    {result.quantity > 0 ? (
                       <>
-                        <p style={{ color: "red", fontSize: "13px" }}>
-                          Apenas {result.quantity} unidade restante
-                        </p>
-                      </>
-                    ) : result.quantity < 1 ? (
-                      <>
-                        <p style={{ color: "red", fontSize: "13px" }}>
-                          Esgotado!
-                        </p>
+                        <Link to={`/buy/${result.id}`}>
+                          <button>Comprar agora</button>
+                        </Link>
                       </>
                     ) : (
-                      <>Em estoque, {result.quantity} unidades</>
+                      <>
+                        <button className="button">
+                          <Link style={{ color: "white" }} to={`#`}>
+                            Esgotado
+                          </Link>
+                        </button>
+                      </>
                     )}
                   </div>
-                  <Link to={`/buy/${result.id}`}>
-                    <button>Comprar agora</button>
-                  </Link>
-                </div>
-              </li>
+                </li>
+              </>
+            ))
+          ) : (
+            <>
+              <p
+                className="alert"
+                style={{
+                  margin: "50px",
+                  fontSize: "16px",
+                }}
+              >
+                Não há nada no estoque!
+              </p>
             </>
-          ))}
+          )}
         </ul>
       </div>
     </section>

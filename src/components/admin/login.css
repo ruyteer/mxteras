@@ -1,0 +1,25 @@
+.admin-login {
+  height: 100vh;
+  font-family: Poppins, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.admin-login form {
+  width: 500px;
+  margin: 4% auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+.admin-login form button {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.admin-login h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 600;
+}

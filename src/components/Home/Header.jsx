@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./header.css";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import logo from "../../assets/logo.png";
+import logo from "/logo.png";
 
 export function CustomLink({ to, children }) {
   const location = useLocation();
@@ -119,16 +119,13 @@ function Header() {
                 <CustomLink to="/contas">Contas</CustomLink>
               </li>
               <li>
-                <CustomLink to="/">Entrar em contato</CustomLink>
+                <a href="https://wa.me/+5583998490964">Entrar em Contato</a>
               </li>
               <li>
                 <CustomLink to="/ladmo">Teras LDMO</CustomLink>
               </li>
               <li>
                 <CustomLink to="/nadmo">Teras GDMO</CustomLink>
-              </li>
-              <li>
-                <CustomLink to="/checkout">Checkout</CustomLink>
               </li>
             </ul>
           </nav>

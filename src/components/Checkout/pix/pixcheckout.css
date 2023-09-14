@@ -1,0 +1,72 @@
+.pix-checkout {
+  margin: 10% auto;
+  display: flex;
+}
+
+.pix-card {
+  width: 500px;
+  margin: 4% auto;
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  border: 1px solid black;
+}
+
+.pix-card p {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+
+.pix-card .span {
+  color: green;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.pix-card .svelte-1a8kh4a {
+  background-image: linear-gradient(#000, #000);
+  border-radius: 10px;
+  transition: 300ms;
+}
+.pix-card .svelte-1a8kh4a:hover {
+  background-image: linear-gradient(#000, #000);
+}
+
+.pix-card .svelte-1a8kh4a:focus {
+  background-color: black;
+}
+
+.pix-card .button-container-gZzvB_,
+.container-small-1m_CyE {
+  background-image: linear-gradient(#000, #000);
+  border-radius: 10px;
+}
+
+.title-pix {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.pix-qrcode {
+  text-align: center;
+  width: 400px;
+  margin-right: 100px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  padding: 30px;
+}
+
+.pix-qrcode img {
+  text-align: center;
+}
+
+.pix-qrcode span {
+  color: blue;
+}

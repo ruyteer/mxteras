@@ -1,23 +1,31 @@
 import React from "react";
-import banner1 from "../../assets/banner-1.png";
-import banner2 from "../../assets/banner-2.png";
+import banner1 from "/banner-1.png";
+import banner2 from "/banner-2.png";
 import "./home.css";
 import Products from "./products/Products";
 import Carousel from "react-bootstrap/Carousel";
 import { CustomLink } from "./Header";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 function Home() {
+  const handleNavigate = () => {
+    window.location.href = "https://wa.me/+5583998490964";
+  };
+
   return (
     <main>
       <img
         src="//cdn.shopify.com/s/files/1/0629/7449/2915/t/6/assets/whatsapp.svg?v=8122552569372891836"
         alt="WhatsApp"
         className="whatsapp"
+        onClick={handleNavigate}
       ></img>
       <section className="slide-show">
-        <Carousel>
+        <Carousel
+          prevLabel={false}
+          nextLabel={false}
+          prevIcon={false}
+          nextIcon={false}
+        >
           <Carousel.Item>
             <img
               src={banner1}

@@ -334,6 +334,10 @@ main {
   background-color: #131212;
 }
 
+.esgoted {
+  color: red;
+}
+
 .product-card .items .stock {
   display: flex;
   color: gray;

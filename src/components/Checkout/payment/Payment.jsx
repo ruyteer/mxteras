@@ -49,9 +49,9 @@ function Payment() {
 
     for (const field of requiredFields) {
       if (!data[field]) {
-        setErrorForm(`Complete todos os campos!`);
+        return setErrorForm(`Complete todos os campos!`);
       } else if (!data["gateway"]) {
-        setErrorForm("Selecione uma forma de pagamento!");
+        return setErrorForm("Selecione uma forma de pagamento!");
       }
     }
 
@@ -59,34 +59,76 @@ function Payment() {
     setErrorForm("");
 
     if (gateway === "mercado-pago") {
+      try {
+        const response = await fetch(`${url}/user/create`, {
+          method: "POST",
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            nickname: nick,
+            number: phone,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const repsonseJson = await response.json();
+
+        localStorage.setItem("userId", JSON.stringify(repsonseJson));
+      } catch (error) {
+        console.log(error);
+      }
       navigate(`/checkout/mp/${id}`);
     } else if (gateway === "binance") {
       window.location.href = `https://wa.me/+5583998490964?text=Olá,%20quero%20fazer%20a%20compra%20do%20produto:%20${
         product.name
       }%20pela%20binance%20no%20valor%20de%20${handleGetPrice()}%20reais!`;
+    } else if (gateway === "pagseguro") {
+      try {
+        const response = await fetch(`${url}/user/create`, {
+          method: "POST",
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            nickname: nick,
+            number: phone,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const repsonseJson = await response.json();
+
+        localStorage.setItem("userId", JSON.stringify(repsonseJson));
+      } catch (error) {
+        console.log(error);
+      }
+      navigate(`/checkout/pagseguro/${id}`);
+    } else if (gateway === "pix") {
+      try {
+        const response = await fetch(`${url}/user/create`, {
+          method: "POST",
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            nickname: nick,
+            number: phone,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const repsonseJson = await response.json();
+
+        localStorage.setItem("userId", JSON.stringify(repsonseJson));
+      } catch (error) {
+        console.log(error);
+      }
+      navigate(`/checkout/pix/${id}`);
     }
-  };
-
-  const handleFormatNumber = (e) => {
-    const input = e.target;
-    let value = input.value.replace(/\D/g, "");
-    value = value.slice(0, 13);
-
-    let formattedValue = value;
-
-    if (value.length === 12) {
-      formattedValue = `+${value.slice(0, 2)} ${value.slice(
-        2,
-        4
-      )} ${value.slice(4, 8)}-${value.slice(8)}`;
-    } else if (value.length === 13) {
-      formattedValue = `+${value.slice(0, 2)} ${value.slice(
-        2,
-        4
-      )} ${value.slice(4, 5)} ${value.slice(5, 9)}-${value.slice(9)}`;
-    }
-
-    input.value = formattedValue;
   };
 
   const handleChangeQuantity = (e) => {
@@ -189,8 +231,7 @@ function Payment() {
               type="text"
               name="phone"
               id="phone"
-              placeholder="+00 00 0000-0000"
-              onChange={handleFormatNumber}
+              placeholder="00 00 0000-0000"
             />
           </div>
         </section>

@@ -9,6 +9,7 @@ function MainCheckout() {
   const { id } = useParams();
   const localData = JSON.parse(localStorage.getItem("data"));
   const [product, setProduct] = useState({});
+  const [error, setError] = useState("");
 
   useEffect(() => {
     handleGetProduct();
@@ -39,6 +40,14 @@ function MainCheckout() {
     }
   };
 
+  const handleUpdateProduct = () => {
+    if (localData.quantity === product.quantity) {
+      return 0;
+    }
+
+    return product.quantity - localData.quantity;
+  };
+
   const navigate = useNavigate();
 
   const onError = async (error) => {
@@ -46,23 +55,52 @@ function MainCheckout() {
   };
 
   const onSubmit = async (formData) => {
-    return new Promise((resolve, reject) => {
-      fetch("/process_payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          // resposta de pagamento bem sucedido
-          resolve();
-        })
-        .catch((error) => {
-          // erro no pagamento
-          reject();
+    return new Promise(async (resolve, reject) => {
+      const form = {
+        data: formData,
+        userId: JSON.parse(localStorage.getItem("userId")),
+        productId: id,
+        quantity: localData.quantity,
+        price: handleGetPrice(),
+      };
+
+      try {
+        const response = await fetch(`${url}/order/card/process_payment`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
         });
+        const responseJson = await response.json();
+        console.log(response);
+
+        if (response.status === 200) {
+          const orderID = responseJson.id;
+
+          await fetch(`${url}/product/update/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              quantity: handleUpdateProduct(),
+            }),
+          }).catch((error) => console.log(error));
+
+          localStorage.removeItem("data");
+          localStorage.removeItem("userId");
+
+          navigate(`/payment/success/${orderID}`);
+          resolve();
+        } else if (response.status != 200) {
+          throw new Error("payment failed");
+        }
+      } catch (error) {
+        console.log(error);
+        setError("Pagamento não autorizado! Tente novamente.");
+        reject();
+      }
     });
   };
 
@@ -121,6 +159,7 @@ function MainCheckout() {
           onError={onError}
           onSubmit={onSubmit}
         />
+        <div className="error-payment">{error}</div>
       </div>
     </>
   );
