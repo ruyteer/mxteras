@@ -19,7 +19,6 @@ export class CreatePixMercadoPago implements PixMercadoPago {
         payment_method_id: data.formData.payment_method_id,
         transaction_amount: data.formData.transaction_amount,
         installments: 1,
-        notification_url: "http://localhost:3000/order/pix/update_payment",
         callback_url: `http://localhost:5173/payment/success/${orderId}`, // passa um numero aleatorio e la no fornt manda uma req pra atualizar pora esse numero
         order: {
           id: orderId,
@@ -43,6 +42,8 @@ export class CreatePixMercadoPago implements PixMercadoPago {
         date: date_created,
         paymentMethod: payment_type_id,
         paymentUrl: point_of_interaction.transaction_data.ticket_url,
+        qrcode: point_of_interaction.transaction_data.qr_code_base64,
+        copy_qrcode: point_of_interaction.transaction_data.qr_code,
       };
 
       return response;
