@@ -10,4 +10,8 @@ export class CouponRepository implements ICouponRepository {
   async findAll(): Promise<CouponModel[]> {
     return await prisma.coupon.findMany();
   }
+
+  async delete(id: string): Promise<void> {
+    await prisma.coupon.delete({ where: { id } });
+  }
 }

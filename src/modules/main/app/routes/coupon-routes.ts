@@ -4,6 +4,7 @@ import { makeCreateCoupon } from "../factories/coupon/create-coupon";
 import { makeGetCoupon } from "../factories/coupon/get-coupon";
 import { middlewareAdapt } from "../adapters/middlewares";
 import { makeMiddlewareProduct } from "../factories";
+import { makeDeleteCoupon } from "../factories/coupon/delete-coupon";
 
 const couponRoutes = Router();
 
@@ -14,5 +15,10 @@ couponRoutes.post(
 );
 
 couponRoutes.get("/coupons", productAdapt(makeGetCoupon()));
+couponRoutes.delete(
+  "/coupon/delete/:id",
+  middlewareAdapt(makeMiddlewareProduct()),
+  productAdapt(makeDeleteCoupon())
+);
 
 export { couponRoutes };
