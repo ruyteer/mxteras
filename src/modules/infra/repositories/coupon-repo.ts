@@ -14,4 +14,8 @@ export class CouponRepository implements ICouponRepository {
   async delete(id: string): Promise<void> {
     await prisma.coupon.delete({ where: { id } });
   }
+
+  async update(coupon: any, id: string): Promise<void> {
+    await prisma.coupon.update({ where: { id }, data: coupon });
+  }
 }
