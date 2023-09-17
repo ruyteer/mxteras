@@ -10,7 +10,10 @@ export class EditCouponController implements Controller {
       const { id } = httpRequest.req.params;
       const { code, discount } = httpRequest.req.body;
 
-      await this.editCouponUseCases.update({ code, discount }, id);
+      await this.editCouponUseCases.update(
+        { code, discount: parseInt(discount) },
+        id
+      );
 
       return okResponse();
     } catch (error) {
