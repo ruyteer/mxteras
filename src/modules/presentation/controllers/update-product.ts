@@ -16,7 +16,7 @@ export class UpdateProductController implements Controller {
         {
           name,
           description,
-          quantity,
+          quantity: parseInt(quantity),
           price,
           images,
           category,
