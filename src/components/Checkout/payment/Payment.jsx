@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./payment.css";
 import { useNavigate, useParams } from "react-router-dom";
-const url = "http://localhost:3000";
+import { Wallet, initMercadoPago } from "@mercadopago/sdk-react";
+initMercadoPago("APP_USR-1ace6f55-6a24-43cb-add8-64b972cb29f7");
+const url = import.meta.env.VITE_URL;
 
 function Payment() {
   const [selectedLink, setSelectedLink] = useState(null);
@@ -22,9 +24,9 @@ function Payment() {
 
   const handleGetPrice = () => {
     if (discount > 0) {
-      return (product.price * quantity * (1 - discount / 100)).toFixed(2);
+      return (product.price * (1 - discount / 100)).toFixed(2);
     } else {
-      return (product.price * quantity).toFixed(2);
+      return product.price;
     }
   };
 
@@ -79,11 +81,15 @@ function Payment() {
       } catch (error) {
         console.log(error);
       }
-      navigate(`/checkout/mp/${id}`);
+
+      const { response } = await handleCreatePreference();
+      window.location.href = response.init_point;
     } else if (gateway === "binance") {
       window.location.href = `https://wa.me/+5583998490964?text=Olá,%20quero%20fazer%20a%20compra%20do%20produto:%20${
         product.name
-      }%20pela%20binance%20no%20valor%20de%20${handleGetPrice()}%20reais!`;
+      }%20pela%20binance%20no%20valor%20de%20${
+        handleGetPrice() * quantity
+      }%20reais!`;
     } else if (gateway === "pagseguro") {
       try {
         const response = await fetch(`${url}/user/create`, {
@@ -105,7 +111,11 @@ function Payment() {
       } catch (error) {
         console.log(error);
       }
-      navigate(`/checkout/pagseguro/${id}`);
+      window.location.href = `https://wa.me/+5583998490964?text=Olá,%20quero%20fazer%20a%20compra%20do%20produto:%20${
+        product.name
+      }%20pela%20pagseguro%20no%20valor%20de%20${
+        handleGetPrice() * quantity
+      }%20reais!`;
     } else if (gateway === "pix") {
       try {
         const response = await fetch(`${url}/user/create`, {
@@ -127,7 +137,10 @@ function Payment() {
       } catch (error) {
         console.log(error);
       }
-      navigate(`/checkout/pix/${id}`);
+
+      const { response } = await handleCreatePixPreference();
+      window.location.href = response.init_point;
+      console.log(response);
     }
   };
 
@@ -186,9 +199,61 @@ function Payment() {
     }
   };
 
+  const handleCreatePreference = async () => {
+    console.log(handleGetPrice());
+    try {
+      const response = await fetch(`${url}/order/preference/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: product.name,
+          description: product.description,
+          price: handleGetPrice(),
+          quantity: quantity,
+          image: product.images[0],
+        }),
+      });
+
+      const responseJson = await response.json();
+
+      console.log(responseJson);
+      return responseJson;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleCreatePixPreference = async () => {
+    const discount = (5 / 100) * handleGetPrice();
+    try {
+      const response = await fetch(`${url}/order/preference/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: product.name,
+          description: product.description,
+          price: handleGetPrice() - discount,
+          quantity: quantity,
+          image: product.images[0],
+          method: "pix",
+        }),
+      });
+
+      const responseJson = await response.json();
+
+      console.log(responseJson);
+      return responseJson;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="payment">
-      <nav>
+      <nav className="pix-discount">
         <h1>Desconto de 5% em compras no PIX!</h1>
       </nav>
       <form onSubmit={handleSubmit}>
@@ -266,7 +331,6 @@ function Payment() {
                 }}
               />
             </a>
-
             <a
               className={selectedLink === "pagseguro" ? "checked" : "img"}
               onClick={() => handleLinkClick("pagseguro")}

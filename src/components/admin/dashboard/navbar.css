@@ -1,0 +1,53 @@
+.admin-nav {
+  background-color: #222;
+  width: 17%;
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins, sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.admin-nav h1 {
+  font-size: 20px;
+  color: #f7f7ff;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.admin-nav ul {
+  margin-top: 130px;
+}
+
+.admin-nav li {
+  margin-top: 20px;
+}
+
+.admin-nav ul li a {
+  color: #f7f7ff;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: 300ms;
+}
+
+.admin-nav li a:hover {
+  opacity: 0.8;
+}
+
+.admin-nav li svg {
+  color: #f7f7ff;
+}
+
+.admin-nav a {
+  margin-top: 200px;
+  color: #f7f7ff;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.admin-nav a:hover {
+  opacity: 0.8;
+}

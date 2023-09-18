@@ -223,3 +223,30 @@
   margin-top: -10px;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .pix-discount {
+    display: block;
+  }
+
+  .payment form {
+    flex-direction: column;
+  }
+
+  .personal-info {
+    margin: 50px auto;
+  }
+
+  .gateway {
+    margin: 0 auto;
+  }
+
+  .resume {
+    margin: 30px auto;
+    width: 350px;
+  }
+
+  .resume input {
+    width: 200px;
+  }
+}

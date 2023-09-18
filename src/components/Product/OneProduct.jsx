@@ -3,7 +3,7 @@ import "./one-product.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ImageMagnifier from "./Lupa";
 
-const url = "http://localhost:3000";
+const url = import.meta.env.VITE_URL;
 
 function OneProduct() {
   const { id } = useParams();
@@ -137,6 +137,26 @@ function OneProduct() {
                 />
               </div>
             </div>
+            <div className="img-list-mobile">
+              <ul>
+                {product && product.images ? (
+                  product.images.map((result) => (
+                    <li key={result}>
+                      <a href={result}>
+                        <img
+                          src={result}
+                          alt=""
+                          className="img"
+                          onClick={handleImageSrc}
+                        />
+                      </a>
+                    </li>
+                  ))
+                ) : (
+                  <></>
+                )}
+              </ul>
+            </div>
           </div>
           <div className="desc">
             <h1>Descrição</h1>
@@ -239,7 +259,10 @@ function OneProduct() {
                 display: "flex",
               }}
             >
-              <div style={{ marginRight: "18px" }}>
+              <div
+                className="payment-list-title"
+                style={{ marginRight: "18px" }}
+              >
                 <svg
                   version="1.1"
                   id="Capa_1"
@@ -339,6 +362,11 @@ function OneProduct() {
             </div>
           </div>
         </section>
+        <div className="desc-mobile">
+          <h1>Descrição</h1>
+
+          <p>{product.description}</p>
+        </div>
       </div>
     </div>
   );

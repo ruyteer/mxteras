@@ -138,7 +138,7 @@ function ProductPage({ type }) {
             <div className="line"></div>
           </div>
 
-          <ul>
+          <ul className="ul">
             <li className="products-list">
               <Products category={product} />
             </li>

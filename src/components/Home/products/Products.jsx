@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-const url = "http://localhost:3000";
+const url = import.meta.env.VITE_URL;
 
 function Products({ category, limit }) {
   const [product, setProduct] = useState([]);
@@ -50,54 +50,109 @@ function Products({ category, limit }) {
           {filteredProducts.length > 0 ? (
             filteredProducts.map((result) => (
               <>
-                <li>
-                  <div className="items">
-                    <img
-                      src={result.images[0]}
-                      alt="prouct logo"
-                      style={{
-                        width: "60%",
-                        height: "80%",
-                      }}
-                    />
-                    <a href={`/product/${result.id}`}>{result.name}</a>
-                    <span className="price">R$ {result.price}</span>
-                    <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
+                {result.quantity > 0 ? (
+                  <Link to={`/product/${result.id}`} style={{ color: "black" }}>
+                    <li>
+                      <div className="items">
+                        <img
+                          src={result.images[0]}
+                          alt="prouct logo"
+                          style={{
+                            width: "60%",
+                            height: "80%",
+                          }}
+                        />
+                        <a>{result.name}</a>
+                        <span className="price">R$ {result.price}</span>
+                        <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
 
-                    <div className="stock">
-                      {result.quantity === 1 ? (
-                        <>
-                          <p style={{ color: "red", fontSize: "13px" }}>
-                            Apenas {result.quantity} unidade restante
-                          </p>
-                        </>
-                      ) : result.quantity < 1 ? (
-                        <>
-                          <p style={{ color: "red", fontSize: "13px" }}>
-                            Esgotado!
-                          </p>
-                        </>
-                      ) : (
-                        <>Em estoque, {result.quantity} unidades</>
-                      )}
-                    </div>
-                    {result.quantity > 0 ? (
-                      <>
-                        <Link to={`/buy/${result.id}`}>
-                          <button>Comprar agora</button>
-                        </Link>
-                      </>
-                    ) : (
-                      <>
-                        <button className="button">
-                          <Link style={{ color: "white" }} to={`#`}>
-                            Esgotado
-                          </Link>
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </li>
+                        <div className="stock">
+                          {result.quantity === 1 ? (
+                            <>
+                              <p style={{ color: "red", fontSize: "13px" }}>
+                                Apenas {result.quantity} unidade restante
+                              </p>
+                            </>
+                          ) : result.quantity < 1 ? (
+                            <>
+                              <p style={{ color: "red", fontSize: "13px" }}>
+                                Esgotado!
+                              </p>
+                            </>
+                          ) : (
+                            <>Em estoque, {result.quantity} unidades</>
+                          )}
+                        </div>
+                        {result.quantity > 0 ? (
+                          <>
+                            <Link to={`/buy/${result.id}`}>
+                              <button>Comprar agora</button>
+                            </Link>
+                          </>
+                        ) : (
+                          <>
+                            <button className="button">
+                              <Link style={{ color: "white" }} to={`#`}>
+                                Esgotado
+                              </Link>
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </li>
+                  </Link>
+                ) : (
+                  <Link style={{ color: "black" }}>
+                    <li>
+                      <div className="items">
+                        <img
+                          src={result.images[0]}
+                          alt="prouct logo"
+                          style={{
+                            width: "60%",
+                            height: "80%",
+                          }}
+                        />
+                        <a>{result.name}</a>
+                        <span className="price">R$ {result.price}</span>
+                        <p>em até 12x de R$ {(result.price / 12).toFixed(2)}</p>
+
+                        <div className="stock">
+                          {result.quantity === 1 ? (
+                            <>
+                              <p style={{ color: "red", fontSize: "13px" }}>
+                                Apenas {result.quantity} unidade restante
+                              </p>
+                            </>
+                          ) : result.quantity < 1 ? (
+                            <>
+                              <p style={{ color: "red", fontSize: "13px" }}>
+                                Esgotado!
+                              </p>
+                            </>
+                          ) : (
+                            <>Em estoque, {result.quantity} unidades</>
+                          )}
+                        </div>
+                        {result.quantity > 0 ? (
+                          <>
+                            <Link to={`/buy/${result.id}`}>
+                              <button>Comprar agora</button>
+                            </Link>
+                          </>
+                        ) : (
+                          <>
+                            <button className="button">
+                              <Link style={{ color: "white" }} to={`#`}>
+                                Esgotado
+                              </Link>
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </li>
+                  </Link>
+                )}
               </>
             ))
           ) : (

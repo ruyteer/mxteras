@@ -1,0 +1,68 @@
+.create-product {
+  display: flex;
+}
+
+.edit-product {
+  display: flex;
+}
+
+.content-create {
+  font-family: Poppins, sans-serif;
+  margin-left: 50px;
+  width: 70%;
+}
+
+.content-create h1 {
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.content-create form {
+  display: flex;
+}
+
+.content-create .right {
+  margin-left: 100px;
+}
+
+.content-create form textarea {
+  height: 200px;
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  border-radius: 14px;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.content-create form textarea:focus {
+  outline: none;
+}
+
+.content-create form #files {
+  padding: 10px;
+}
+
+.content-create form select {
+  margin-top: 10px;
+  padding: 13px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.content-create form button {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: whitesmoke;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.content-create form button:hover {
+  opacity: 0.95;
+}

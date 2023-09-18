@@ -1,5 +1,5 @@
 main {
-  height: 400vh;
+  height: 100%;
   background-color: #f7f7f7;
 }
 
@@ -394,4 +394,65 @@ main .whatsapp {
   line-height: 28.05px;
   position: fixed;
   z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-show img {
+    width: 360px !important;
+    height: auto !important;
+  }
+
+  .products-page-one .product-card {
+    display: flex;
+    flex-wrap: nowrap; /* Impede que os produtos quebrem em várias linhas */
+    overflow-x: auto; /* Permite rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* Adiciona rolagem suave em dispositivos iOS */
+  }
+
+  .product-card .items {
+    flex: 0 0 auto; /* Os produtos não ocuparão todo o espaço disponível na largura */
+    margin-right: 20px; /* Espaçamento entre os produtos */
+  }
+
+  /* Estilos para o botão "Ver todos" na versão mobile */
+  .titles a {
+    margin-right: 20px;
+    font-size: 18px !important;
+  }
+
+  .line-ldmo {
+    width: 200px !important;
+  }
+  .line-nadmo {
+    width: 100px !important;
+  }
+
+  .titles h1 {
+    font-size: 18px !important;
+  }
+
+  .info-list {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -20px;
+  }
+
+  .info-list li {
+    flex: 0 0 auto;
+    margin-right: 20px;
+  }
+
+  main {
+    height: 100%;
+  }
+}
+
+/* Estilos adicionais */
+.product-card-mobile {
+  /* Adicione estilos específicos para a versão mobile dos produtos aqui */
+  /* Por exemplo, você pode ajustar a largura e altura dos produtos móveis */
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
 }

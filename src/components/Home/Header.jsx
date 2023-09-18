@@ -25,6 +25,12 @@ CustomLink.propTypes = {
 };
 
 function Header() {
+  const [active, setActive] = useState(false);
+
+  const handleActived = () => {
+    setActive(!active);
+  };
+
   return (
     <>
       <header>
@@ -59,15 +65,26 @@ function Header() {
         <section className="downtop">
           {/* Logo */}
           <section className="logo">
-            <img
-              src={logo}
-              alt=""
-              style={{
-                width: 300,
-                height: 90,
-                textAlign: "center",
-              }}
-            />
+            <div
+              className={active ? "nav-lines line-active" : "nav-lines"}
+              onClick={handleActived}
+            >
+              <div className="lines-hamburger line1"></div>
+              <div className="lines-hamburger line2"></div>
+              <div className="lines-hamburger line3"></div>
+            </div>
+
+            <Link to={"/"}>
+              <img
+                src={logo}
+                alt=""
+                style={{
+                  width: 300,
+                  height: 90,
+                  textAlign: "center",
+                }}
+              />
+            </Link>
           </section>
 
           {/* Search bar */}
@@ -109,8 +126,7 @@ function Header() {
           </section>
         </section>
         <section className="navigation">
-          {/* Nav links */}
-          <nav>
+          <nav className={active ? "actived" : "hidden"}>
             <ul>
               <li>
                 <CustomLink to="/">Início</CustomLink>

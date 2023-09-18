@@ -100,3 +100,32 @@
 .info-list {
   margin-bottom: 50px;
 }
+
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .show-products {
+    width: 90% !important;
+    margin-left: 20px;
+  }
+
+  .header ul li {
+    display: none;
+  }
+
+  .header h1 {
+    text-align: center;
+  }
+
+  .product-page .line {
+    width: 100% !important;
+  }
+
+  .product-card ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: auto;
+  }
+}

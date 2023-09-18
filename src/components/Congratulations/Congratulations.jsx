@@ -1,9 +1,9 @@
 import React from "react";
 import "./congrats.css";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 function Congratulations() {
-  const { id } = useParams();
+  const items = useSearchParams();
 
   const handleNavigate = () => {
     window.location.href = "https://chat.whatsapp.com/DBkqkstCHmIA6NGvJhqNbG";
@@ -13,7 +13,10 @@ function Congratulations() {
     <div className="congrats">
       <h1 className="title">Recebemos seu pedido!</h1>
 
-      <p>Obrigado por escolher a gente! Número do pedido {id}</p>
+      <p>
+        Obrigado por escolher a gente! Número do pedido{" "}
+        {items[0].get("payment_id")}
+      </p>
       <p>Se você comprou Teras, estaremos esperando você no local da foto</p>
       <p>(Dats-ch0 vmon)</p>
 

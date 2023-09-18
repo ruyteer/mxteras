@@ -1,0 +1,75 @@
+.banners {
+  display: flex;
+  font-family: Poppins, sans-serif;
+}
+
+.banners-content {
+  margin-bottom: 50px;
+}
+
+.banners-content button {
+  margin-left: 40px;
+  width: 130px;
+  padding: 10px;
+  background-color: black;
+  color: #f7f7f7;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.banners-content button:hover {
+  opacity: 0.9;
+}
+
+.banners-content h1 {
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 23px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.banners-content ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.banners-content .item {
+  display: flex;
+  margin-top: 20px;
+  background-color: rgb(204, 204, 204);
+  border-radius: 15px;
+  padding: 20px;
+  height: 180px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.banners-content .item img {
+  height: 100%;
+}
+
+.banners-content .item button {
+  margin-left: 50px;
+  width: 100px;
+  padding: 10px;
+  background-color: black;
+  color: #f7f7f7;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.banners-content .item button:hover {
+  opacity: 0.9;
+}

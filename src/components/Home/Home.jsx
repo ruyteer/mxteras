@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import banner1 from "/banner-1.png";
 import banner2 from "/banner-2.png";
 import "./home.css";
 import Products from "./products/Products";
 import Carousel from "react-bootstrap/Carousel";
 import { CustomLink } from "./Header";
-
+const url = import.meta.env.VITE_URL;
 function Home() {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    handleGetBanners();
+  }, []);
+
+  const handleGetBanners = async () => {
+    const response = await fetch(`${url}/banners`);
+    const responseJson = await response.json();
+    setBanners(responseJson);
+  };
+
   const handleNavigate = () => {
     window.location.href = "https://wa.me/+5583998490964";
   };
@@ -26,26 +38,33 @@ function Home() {
           prevIcon={false}
           nextIcon={false}
         >
-          <Carousel.Item>
-            <img
-              src={banner1}
-              alt="banner"
-              style={{
-                width: "1286px",
-                height: "428px",
-              }}
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              src={banner2}
-              alt="banner"
-              style={{
-                width: "1286px",
-                height: "428px",
-              }}
-            />
-          </Carousel.Item>
+          {banners ? (
+            banners.map((result) => (
+              <Carousel.Item>
+                <img
+                  src={result.image}
+                  alt="banner"
+                  style={{
+                    width: "1286px",
+                    height: "428px",
+                  }}
+                />
+              </Carousel.Item>
+            ))
+          ) : (
+            <>
+              <Carousel.Item>
+                <img
+                  src={banner1}
+                  alt="banner"
+                  style={{
+                    width: "1286px",
+                    height: "428px",
+                  }}
+                />
+              </Carousel.Item>
+            </>
+          )}
         </Carousel>
       </section>
 
@@ -54,7 +73,7 @@ function Home() {
           <h1>NADMO ou GDMO (Inglês - Global)</h1>
           <CustomLink to="/nadmo">Ver todos</CustomLink>
         </div>
-        <div className="line"></div>
+        <div className="line line-nadmo"></div>
         <Products category="nadmo" limit={3} />
       </section>
 

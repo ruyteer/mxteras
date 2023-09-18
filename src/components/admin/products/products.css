@@ -1,0 +1,86 @@
+.admin-products {
+  display: flex;
+  font-family: Poppins, sans-serif;
+}
+
+.p-content {
+  margin-bottom: 50px;
+}
+
+.p-content button {
+  margin-left: 40px;
+  width: 130px;
+  padding: 10px;
+  background-color: black;
+  color: #f7f7f7;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.p-content button:hover {
+  opacity: 0.9;
+}
+
+.p-content h1 {
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 23px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.p-content ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  overflow: auto;
+}
+
+.p-content .item {
+  display: flex;
+  margin-top: 20px;
+  background-color: rgb(204, 204, 204);
+  border-radius: 15px;
+  padding: 15px;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.p-content .item img {
+  height: 100%;
+}
+
+.p-content .item p {
+  margin-left: 30px;
+}
+
+.p-content .item .title {
+  font-weight: 500;
+}
+
+.p-content .item .price {
+  color: green;
+}
+
+.p-content .item button {
+  margin-left: 20px;
+  width: 100px;
+  padding: 10px;
+  background-color: black;
+  color: #f7f7f7;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.p-content .item button:hover {
+  opacity: 0.9;
+}

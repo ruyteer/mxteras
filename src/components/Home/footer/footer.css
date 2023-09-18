@@ -83,3 +83,21 @@ footer {
   position: relative;
   top: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  footer {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .final-considerations {
+    margin-bottom: 200px;
+  }
+}

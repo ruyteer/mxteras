@@ -1,0 +1,80 @@
+.coupons {
+  display: flex;
+  font-family: Poppins, sans-serif;
+}
+
+.coupons-content table {
+  width: 200%;
+  border-collapse: collapse;
+  padding: 30px;
+  margin-left: 20%;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+.coupons-content h1 {
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 23px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.coupons-content button {
+  margin-left: 40px;
+  width: 130px;
+  padding: 10px;
+  background-color: black;
+  color: #f7f7f7;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+th,
+td {
+  border: 1px solid #949494;
+  padding: 8px;
+  text-align: left;
+  border-radius: 10px;
+  transition: 300ms;
+  padding: 15px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+  transition: 300ms;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+  transition: 300ms;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+.coupons-content table button {
+  margin-left: 10px;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  background-color: black;
+  color: #f7f7f7;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.coupons-content button:hover {
+  opacity: 0.9;
+}
