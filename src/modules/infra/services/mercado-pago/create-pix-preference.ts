@@ -19,9 +19,11 @@ export class CreatePixPreference implements ICreatePreference {
             picture_url: product.image,
           },
         ],
+        binary_mode: true,
         back_urls: {
           success: `http://localhost:5173/payment/success/${orderId}`,
         },
+        auto_return: "all",
         payment_methods: {
           excluded_payment_types: [
             {
