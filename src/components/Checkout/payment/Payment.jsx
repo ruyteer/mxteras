@@ -45,7 +45,7 @@ function Payment() {
     const suffix = cleanedNumber.slice(6, 10);
 
     // Formata o número no estilo desejado
-    const formattedNumber = `55 ${ddd} 9 ${prefix}-${suffix}`;
+    const formattedNumber = `${ddd} 9 ${prefix}-${suffix}`;
 
     return formattedNumber;
   }
