@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-const url = "http://localhost:3000";
+const url = import.meta.env.VITE_URL;
 
 function AdminLogin() {
   const [error, setError] = useState("");

@@ -138,8 +138,8 @@ function Payment() {
         console.log(error);
       }
 
-      const { response } = await handleCreatePixPreference();
-      window.location.href = response.init_point;
+      const response = await handleCreatePixPreference();
+      // window.location.href = response.init_point;
       console.log(response);
     }
   };
@@ -227,6 +227,8 @@ function Payment() {
   const handleCreatePixPreference = async () => {
     const discount = (5 / 100) * handleGetPrice();
     try {
+      const userData = JSON.parse(localStorage.getItem("data"));
+
       const response = await fetch(`${url}/order/preference/create`, {
         method: "POST",
         headers: {
@@ -239,6 +241,7 @@ function Payment() {
           quantity: quantity,
           image: product.images[0],
           method: "pix",
+          email: userData.email,
         }),
       });
 
