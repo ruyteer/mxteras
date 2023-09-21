@@ -5,7 +5,7 @@ import { PreferenceProduct } from "../../../presentation/views/preference-produc
 export class CreatePixPreference implements ICreatePreference {
   async create(product: PreferenceProduct): Promise<any> {
     const orderId = Math.floor(Math.random() * Math.pow(10, 6));
-    mercadopago.configurations.setAccessToken(process.env.MERCADO_PAGO_ACESS);
+    mercadopago.configure({ access_token: process.env.MERCADO_PAGO_ACESS });
     try {
       const mpResponse = await mercadopago.preferences.create({
         items: [
