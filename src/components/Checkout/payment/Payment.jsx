@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./payment.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { Wallet, initMercadoPago } from "@mercadopago/sdk-react";
-initMercadoPago("APP_USR-1ace6f55-6a24-43cb-add8-64b972cb29f7");
+initMercadoPago("APP_USR-fc72ffb8-6ecc-4a22-9c49-64cb2cbd92fd");
 const url = import.meta.env.VITE_URL;
 
 function Payment() {
