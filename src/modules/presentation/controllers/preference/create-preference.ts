@@ -10,7 +10,7 @@ export class CreatePreferenceController implements Controller {
 
   async handle(httpRequest?: httpRequest): Promise<httpResponse> {
     try {
-      const { name, description, image, price, quantity, method } =
+      const { name, description, image, price, quantity, method, email } =
         httpRequest.req.body;
 
       if (method === "pix") {
@@ -20,6 +20,7 @@ export class CreatePreferenceController implements Controller {
           image,
           price: parseFloat(price),
           quantity: parseInt(quantity),
+          userEmail: email,
         });
 
         return okResponse(preference);
@@ -30,6 +31,7 @@ export class CreatePreferenceController implements Controller {
         image,
         price: parseFloat(price),
         quantity: parseInt(quantity),
+        userEmail: email,
       });
 
       return okResponse(preferenceId);

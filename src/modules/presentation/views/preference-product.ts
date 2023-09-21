@@ -4,4 +4,5 @@ export type PreferenceProduct = {
   quantity: number;
   image: string;
   description: string;
+  userEmail: string;
 };
