@@ -238,7 +238,7 @@ function Payment() {
         body: JSON.stringify({
           name: product.name,
           description: product.description,
-          price: handleGetPrice() - discount,
+          price: (handleGetPrice() - discount).toFixed(2),
           quantity: quantity,
           image: product.images[0],
           method: "pix",
