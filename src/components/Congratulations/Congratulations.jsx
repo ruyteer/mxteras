@@ -31,7 +31,7 @@ function Congratulations() {
         Informe o número do pedido no grupo ou com Alex
       </h1>
 
-      <button onClick={handleNavigate}>Grupo MXTERAS</button>
+      <button onClick={handleNavigate}>Alex WhatsApp</button>
     </div>
   );
 }
