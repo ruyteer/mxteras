@@ -139,7 +139,8 @@ function Payment() {
       }
 
       const response = await handleCreatePixPreference();
-      // window.location.href = response.init_point;
+      window.location.href =
+        response.body.point_of_interaction.transaction_data.ticket_url;
       console.log(response);
     }
   };
