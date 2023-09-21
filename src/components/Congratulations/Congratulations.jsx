@@ -6,7 +6,9 @@ function Congratulations() {
   const items = useSearchParams();
 
   const handleNavigate = () => {
-    window.location.href = "https://chat.whatsapp.com/DBkqkstCHmIA6NGvJhqNbG";
+    window.location.href = `https://wa.me/+5583998490964?text=Olá,%20eu%20acabei20%de20%comprar20%um20%produto!20%Código20%da20%compra:20%${items[0].get(
+      "payment_id"
+    )}`;
   };
 
   return (
