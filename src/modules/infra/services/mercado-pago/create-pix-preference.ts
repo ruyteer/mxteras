@@ -20,7 +20,7 @@ export class CreatePixPreference implements ICreatePreference {
         back_urls: {
           success: `https://www.mxteras.com/payment/success/${orderId}`,
         },
-        auto_return: "all",
+        auto_return: "approved",
         payment_methods: {
           excluded_payment_types: [
             {
