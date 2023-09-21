@@ -19,6 +19,8 @@ export class CreatePixPreference implements ICreatePreference {
         binary_mode: true,
         back_urls: {
           success: `https://www.mxteras.com/payment/success/${orderId}`,
+          failure: `https:www.mxteras.com/error`,
+          pending: `https://www.mxteras.com/payment/success/${orderId}`,
         },
         auto_return: "all",
         payment_methods: {
