@@ -20,7 +20,9 @@ export class CreatePreference implements ICreatePreference {
           },
         ],
         back_urls: {
-          success: `http://localhost:5173/payment/success/${orderId}`,
+          success: `https://www.mxteras.com/payment/success/${orderId}`,
+          failure: `https:www.mxteras.com/error`,
+          pending: `https://www.mxteras.com/payment/success/${orderId}`,
         },
       });
 
