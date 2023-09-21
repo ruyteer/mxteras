@@ -30,6 +30,36 @@ function Payment() {
     }
   };
 
+  function formatPhoneNumber(phoneNumber) {
+    // Remove todos os caracteres não numéricos
+    const cleanedNumber = phoneNumber.replace(/\D/g, "");
+
+    // Verifica se o número está vazio ou tem menos de 10 dígitos (incluindo o DDD)
+    if (cleanedNumber.length === 0 || cleanedNumber.length < 10) {
+      return null; // Retorna nulo para indicar que o número é inválido
+    }
+
+    // Separa o número em suas partes (DDD, prefixo, sufixo)
+    const ddd = cleanedNumber.slice(0, 2);
+    const prefix = cleanedNumber.slice(2, 6);
+    const suffix = cleanedNumber.slice(6, 10);
+
+    // Formata o número no estilo desejado
+    const formattedNumber = `55 ${ddd} 9 ${prefix}-${suffix}`;
+
+    return formattedNumber;
+  }
+
+  const handleFormatPhoneNumber = (e) => {
+    const inputPhoneNumber = e.target.value;
+    const formattedPhoneNumber = formatPhoneNumber(inputPhoneNumber);
+
+    if (formattedPhoneNumber) {
+      // Se o número for válido, atualize o valor do campo "phone" formatado
+      document.getElementById("phone").value = formattedPhoneNumber;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = document.getElementById("name").value;
@@ -285,7 +315,7 @@ function Payment() {
           <div className="input-label">
             <label htmlFor="email">Email:</label>
             <input
-              type="text"
+              type="email"
               name="email"
               id="email"
               placeholder="joaopedro@gmail.com"
@@ -302,6 +332,7 @@ function Payment() {
               name="phone"
               id="phone"
               placeholder="00 00 0000-0000"
+              onBlur={handleFormatPhoneNumber}
             />
           </div>
         </section>
