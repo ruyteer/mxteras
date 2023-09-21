@@ -44,10 +44,11 @@ export class CreatePixPreference implements ICreatePreference {
         transaction_amount: product.price,
         payment_method_id: "pix",
         installments: 1,
+
         payer: {
           email: product.userEmail,
         },
-        callback_url: `https://www.mxteras.com/payment/success/${orderId}`,
+        callback_url: `https://mxteras.com/payment/success/${orderId}`,
       });
 
       return mpResponse;
